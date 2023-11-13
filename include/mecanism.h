@@ -7,9 +7,8 @@
 using namespace std;
 
 class Mecanism: public Context{
-    protected:
-        bool finished_;
     public:
+        bool finished_;
         Mecanism* next_mecanism_ = nullptr;
 
         void TransitionTo(State* newState){ 
@@ -18,6 +17,7 @@ class Mecanism: public Context{
         }
 
         void LaunchMecanism(){
+            this->finished_ == false;
             state_->Mecanism();
         }
 };

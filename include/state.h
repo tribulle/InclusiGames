@@ -6,6 +6,7 @@ class Mecanism;
 class State{
     public:
         virtual ~State() = default;
+        Mecanism* mecanism_ = nullptr;
         Mecanism* next_mecanism_ = nullptr;
 
         virtual void Mecanism();

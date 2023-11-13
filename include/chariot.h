@@ -19,15 +19,15 @@ private:
     Chariot(const Chariot&); // private to avoid an involuntary copy
     Chariot& operator=(const Chariot&); // same with involuntary assignment
 
-    void Increase_position(int increase_step){
+    void IncreasePosition(int increase_step){
         position_number_ += increase_step;
     }
-    void Decrease_position(int decrease_step){
+    void DecreasePosition(int decrease_step){
         position_number_ -= decrease_step;
     }
 
-    void Position_update();
-    void State_update();
+    void PositionUpdate();
+    void StateUpdate();
     
 };
 
