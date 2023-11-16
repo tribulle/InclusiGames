@@ -1,5 +1,6 @@
 #include <memory>
 #include "mecanism.h"
+#include <thread>
 
 using namespace std;
 
@@ -15,9 +16,9 @@ class Thread{
         void LaunchMecanismInThread(Mecanism* mecanism_pointer){
             if (mecanism_pointer != nullptr){
                 current_mecanism_ = mecanism_pointer;
-                mecanism_pointer->LaunchMecanism();
+                thread t1(&Mecanism::LaunchMecanism, mecanism_pointer);
 
-                while(current_mecanism_->finished_ == false){}
+                t1.join();
                 LaunchMecanismInThread(mecanism_pointer->next_mecanism_);
             }
         }
