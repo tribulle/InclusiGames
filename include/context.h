@@ -6,15 +6,16 @@
 
 using namespace std;
 
+// Definition of Context (Cross-referenced with State) It's from the State Pattern (Design patterns for OOP)
 class Context{
     protected:
-        State* state_;
+        State* state_;   // What is the current State of the Context ?
     public:
-        virtual void TransitionTo(State* newState){ 
+        virtual void TransitionTo(State* newState){        // Function to change dynamiccaly the current State
             this->state_ = newState;
         }
 
-        Context(){
+        Context(){  // Constructor
             TransitionTo(nullptr);
         }
 };

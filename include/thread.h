@@ -4,7 +4,11 @@
 
 using namespace std;
 
-class Thread{
+// ThreadList manage to synchronize dynamically a list of mecanisms.
+// We don't have to provide the full list of mecanisms, because each state of each mecanism provide the next mecanism to launch.
+// We just have to provide the first Mecanism to launch.
+// Typically some mecanism don't have a next_mecanism_ (by default = nullptr) so the ThreadList will stop.
+class ThreadList{
     public:
         Mecanism* first_mecanism_ = nullptr;
         Mecanism* current_mecanism_ = nullptr;

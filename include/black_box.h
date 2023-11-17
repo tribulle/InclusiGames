@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// à modifier
 class Black_box : public Context {
 public:
     // This is how clients can access the single instance

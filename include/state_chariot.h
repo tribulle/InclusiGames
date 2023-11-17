@@ -3,20 +3,20 @@
 
 #include "state.h"
 
-// Variations State_chariot
+// Variations State_chariot: All the possible state for the Chariot
 class Valid_person_position: public State{
     public:
-        void Mecanism() {}
+        void Mecanism() override {}
 };
 
 class Disabled_person_position: public State{
     public:
-        void Mecanism() {}
+        void Mecanism() override {}
 };
 
 class Invalid_position: public State{
     public:
-        void Mecanism() {}
+        void Mecanism() override {}
 };
 
 #endif
