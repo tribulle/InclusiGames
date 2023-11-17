@@ -3,11 +3,12 @@
 
 #include <memory>
 #include "context.h"
+#include "singleton.h"
 
 using namespace std;
 
 // Definition of Mecanism (It's like an interface to use the membres of the current State) Inherits Context
-class Mecanism: public Context{
+class Mecanism: public Context, public Singleton{
     public:
         Mecanism* next_mecanism_ = nullptr; //What is the next mecanism (from state_)
 
