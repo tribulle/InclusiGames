@@ -1,5 +1,5 @@
 #include <memory>
-#include "mecanism.h"
+#include "../base_class/mecanism.h"
 #include <thread>
 
 using namespace std;

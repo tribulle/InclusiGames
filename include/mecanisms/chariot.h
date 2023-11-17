@@ -1,5 +1,5 @@
 #include <iostream>
-#include "mecanism.h"
+#include "../base_class/mecanism.h"
 
 using namespace std;
 
