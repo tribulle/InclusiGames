@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "../include/image_processing/image_processing.h"
+#include "../include/image_processing/model_data.h"
 
 void setup() {
-  const void* g_model;
   ImageProcessing::InitializeModel(g_model);
 }
 
