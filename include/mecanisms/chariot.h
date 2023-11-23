@@ -14,7 +14,14 @@ private:
         position_number_ -= decrease_step;
     }
 
+    void InitializeSetup(MecanismPin** all_pins);
     void PositionUpdate();
     void StateUpdate();
     
 };
+
+void Chariot::InitializeSetup(MecanismPin** all_pins){
+    all_pins[0] = new MecanismPin(9, OUTPUT);
+    all_pins[1] = new MecanismPin(8, OUTPUT);
+    all_pins[2] = new MecanismPin(7, OUTPUT);
+}
