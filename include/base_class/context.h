@@ -14,10 +14,6 @@ class Context{
         virtual void TransitionTo(State* newState){        // Function to change dynamiccaly the current State
             this->state_ = newState;
         }
-
-        Context(){  // Constructor
-            TransitionTo(nullptr);
-        }
 };
 
 #endif
