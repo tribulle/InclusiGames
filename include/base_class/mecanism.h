@@ -18,10 +18,10 @@ class Mecanism: public Context{
         }
 
         void LaunchMecanism(){  // Launch the mecanism (from state_)
-            state_->Mecanism();
+            state_->MecanismF();
         }
 
-        virtual void Setup();
+        virtual void Setup() = 0;
         
         Mecanism(State* state){
             TransitionTo(state);

@@ -1,5 +1,8 @@
+#ifndef CHARIOT_H
+#define CHARIOT_H
+
 #include <iostream>
-#include "../../base_class/mecanism.h"
+#include "base_class/mecanism.h"
 
 using namespace std;
 
@@ -20,3 +23,5 @@ class Chariot : public Mecanism {
         void StateUpdate();
     
 };
+
+#endif

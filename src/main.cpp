@@ -1,17 +1,15 @@
 #include <Arduino.h>
-#include "../include/image_processing/image_processing.h"
-#include "../include/image_processing/model_data.h"
+
+#include "mecanisms/camera/camera.h"
+#include "mecanisms/camera/state_camera.h"
+
+//Basic_state* basic_state_camera = new Basic_state();
+//CameraMecanism* camera_mecanism = new CameraMecanism(basic_state_camera);
 
 void setup() {
-  ImageProcessing::InitializeModel(g_model);
+
 }
 
 void loop() {
-  // input->data.int8[0] = x_quantized;
-  // Run inference, and report any error
-  TfLiteStatus invoke_status = ImageProcessing::interpreter->Invoke();
-  if (invoke_status != kTfLiteOk) {
-    TF_LITE_REPORT_ERROR(ImageProcessing::error_reporter, "Invoke failed");
-    return;
-  }
+
 }

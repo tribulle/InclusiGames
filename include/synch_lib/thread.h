@@ -1,5 +1,8 @@
+#ifndef THREAD_H
+#define THREAD_H
+
 #include <memory>
-#include "../base_class/mecanism.h"
+#include "base_class/mecanism.h"
 #include <thread>
 
 using namespace std;
@@ -28,3 +31,5 @@ class ThreadList{
         }
 
 };
+
+#endif

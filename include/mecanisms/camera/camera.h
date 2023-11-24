@@ -1,8 +1,13 @@
-#include <iostream>
-#include "../../base_class/mecanism.h"
+#ifndef CAMERA_H
+#define CAMERA_H
 
-class Camera : public Mecanism {
+#include <iostream>
+#include "base_class/mecanism.h"
+
+class CameraMecanism : public Mecanism {
     public:
         void Setup() override;
-        Camera(State* state): Mecanism(state){}
+        CameraMecanism(State* state): Mecanism(state){}
 };
+
+#endif
