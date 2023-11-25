@@ -7,18 +7,17 @@ unsigned char bmpHeader[BMP::headerSize];
 
 void serve()
 {
-  server = new WiFiServer(80);
   WiFiClient client = server->available();
   if (client) 
   {
-    //Serial.println("New Client.");
+    Serial.println("New Client.");
     String currentLine = "";
     while (client.connected()) 
     {
       if (client.available()) 
       {
         char c = client.read();
-        //Serial.write(c);
+        Serial.write(c);
         if (c == '\n') 
         {
           if (currentLine.length() == 0) 
@@ -56,13 +55,13 @@ void serve()
     }
     // close the connection:
     client.stop();
-    //Serial.println("Client Disconnected.");
+    Serial.println("Client Disconnected.");
   }  
 }
 
 void CameraMecanism::Setup(){
 
-  Serial.begin(115200);
+  server = new WiFiServer(80);
   Serial.println("\n[*] Creating AP");
   WiFi.mode(WIFI_AP);
   WiFi.softAP(ssid, password);
@@ -85,5 +84,5 @@ void CameraMecanism::Setup(){
   */
   camera = new OV7670(OV7670::Mode::QQQVGA_RGB565, SIOD, SIOC, VSYNC, HREF, XCLK, PCLK, D0, D1, D2, D3, D4, D5, D6, D7);
   BMP::construct16BitHeader(bmpHeader, camera->xres, camera->yres);
-  (*server).begin();
+  server->begin();
 }
