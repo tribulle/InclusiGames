@@ -1,8 +1,14 @@
 #include "mecanisms/camera/camera_setup.h"
-/*
+
+OV7670* camera;
+WiFiMulti* wifiMulti;
+WiFiServer* server;
+unsigned char bmpHeader[BMP::headerSize];
+
 void serve()
 {
-  WiFiClient client = server.available();
+  server = new WiFiServer(80);
+  WiFiClient client = server->available();
   if (client) 
   {
     //Serial.println("New Client.");
@@ -62,24 +68,22 @@ void CameraMecanism::Setup(){
   WiFi.softAP(ssid, password);
   Serial.print("[+] AP Created with IP Gateway ");
   Serial.println(WiFi.softAPIP());
-  */
+
   /*
   Serial.begin(115200);
 
-  wifiMulti.addAP(ssid1, password1);
-  //wifiMulti.addAP(ssid2, password2);
+  wifiMulti = new WiFiMulti();
+  wifiMulti->addAP(ssid1, password1);
+  //wifiMulti->addAP(ssid2, password2);
   Serial.println("Connecting Wifi...");
-  Serial.println(wifiMulti.run());
-  if(wifiMulti.run() == WL_CONNECTED) {
+  Serial.println(wifiMulti->run());
+  if(wifiMulti->run() == WL_CONNECTED) {
       Serial.println("");
       Serial.println("WiFi connected");
       Serial.println("IP address: ");
       Serial.println(WiFi.localIP());
   */
-/*
   camera = new OV7670(OV7670::Mode::QQQVGA_RGB565, SIOD, SIOC, VSYNC, HREF, XCLK, PCLK, D0, D1, D2, D3, D4, D5, D6, D7);
   BMP::construct16BitHeader(bmpHeader, camera->xres, camera->yres);
-  
-  server.begin();
+  (*server).begin();
 }
-*/
