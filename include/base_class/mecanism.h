@@ -23,7 +23,7 @@ class Mecanism: public Context{
 
         virtual void Setup() = 0;
         
-        Mecanism(State* state){
+        Mecanism(State* state){ // constructor
             TransitionTo(state);
         }
 };

@@ -8,6 +8,8 @@ class Basic_state: public State{
     public:
         int a;
         void MecanismF() override;
+
+        Basic_state(Mecanism* next_mecanism) : State(next_mecanism) {}
 };
 
 #endif
