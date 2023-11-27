@@ -1,6 +1,8 @@
 #ifndef CHARIOT_H
 #define CHARIOT_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include <iostream>
 #include "base_class/mecanism.h"
 

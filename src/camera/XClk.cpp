@@ -5,7 +5,9 @@
 
 #include "mecanisms/camera/XClk.h"
 #include "driver/ledc.h"
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 bool ClockEnable(int pin, int Hz)
 {
     periph_module_enable(PERIPH_LEDC_MODULE);

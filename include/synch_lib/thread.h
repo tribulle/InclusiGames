@@ -1,6 +1,8 @@
 #ifndef THREAD_H
 #define THREAD_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include <memory>
 #include "base_class/mecanism.h"
 #include <thread>

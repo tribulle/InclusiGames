@@ -1,5 +1,10 @@
 #include "mecanisms/camera/camera_setup.h"
-
+//////////////////////////////
+// Définitions des variables de camera_setup.h
+// CameraMecanism::Setup() peut être modifié à guise (pour correspondre à la partie setup() habituelle du main.cpp [sans la configuration Arduino])
+//////////////////////////////
+// NE PAS METTRE DE SERIAL.BEGIN()
+//////
 OV7670* camera;
 WiFiMulti* wifiMulti;
 WiFiServer* server;
