@@ -21,6 +21,7 @@ class Chariot : public Mecanism {
         }
 
         void Setup() override;
+        Chariot(State* state): Mecanism(state){}
         void PositionUpdate();
         void StateUpdate();
     

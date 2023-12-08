@@ -4,7 +4,7 @@
 // Basic_state::MecanismF() peut être modifié à guise (pour correspondre à la partie vois loop() habituelle du main.cpp)
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
-void Basic_state::MecanismF(){
+void Basic_state_camera::MecanismF(){
     camera->oneFrame();  
     delay(100);
     serve();

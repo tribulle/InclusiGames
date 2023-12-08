@@ -4,12 +4,12 @@
 #include "base_class/state.h"
 
 // Variations State_chariot: All the possible state for the Chariot
-class Basic_state: public State{
+class Basic_state_camera: public State{
     public:
         int a;
         void MecanismF() override;
 
-        Basic_state(Mecanism* next_mecanism) : State(next_mecanism) {}
+        Basic_state_camera(Mecanism* next_mecanism) : State(next_mecanism) {}
 };
 
 #endif
