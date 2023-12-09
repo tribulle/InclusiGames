@@ -5,11 +5,10 @@
 //////////////////////////////
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
+
+Servo servo;
+
 void Chariot::Setup(){
-    pinMode(enA, OUTPUT);
-    pinMode(in1, OUTPUT);
-    pinMode(in2, OUTPUT);
-    // Set initial rotation direction
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
+    servo.setPeriodHertz(50);
+    servo.attach(14, 500, 2400);
 }

@@ -1,6 +1,8 @@
 #ifndef MECANISM_H
 #define MECANISM_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include <Arduino.h>
 #include <memory>
 #include "context.h"

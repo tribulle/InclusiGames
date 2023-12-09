@@ -1,5 +1,8 @@
 #ifndef STATE_H
 #define STATE_H
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 
 class Mecanism;
 
@@ -11,6 +14,10 @@ class State{
         virtual void MecanismF() = 0;        //What should do the mecanism (for this current state)
 
         State(Mecanism* next_mecanism){
+            this->next_mecanism_ = next_mecanism;
+        }
+
+        void Change_next_mecanism_to(Mecanism* next_mecanism){
             this->next_mecanism_ = next_mecanism;
         }
 };

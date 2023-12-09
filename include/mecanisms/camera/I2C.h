@@ -1,6 +1,8 @@
 #ifndef ITWOC_H
 #define ITWOC_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include "Arduino.h"
 
 class I2C

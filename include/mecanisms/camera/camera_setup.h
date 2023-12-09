@@ -1,5 +1,9 @@
 #ifndef CAMERASETUP_H
 #define CAMERASETUP_H
+//////////////////////////////
+// Déclarations des variables nécessaires au Setup de la caméra
+// Tu peux rajouter des variables (leurs déclarations uniquement) [sauf pour les types de bases] Ne pas supprimer les autre variables
+//////////////////////////////
 
 #include "camera.h"
 #include "OV7670.h"

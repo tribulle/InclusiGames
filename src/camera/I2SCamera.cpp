@@ -5,7 +5,9 @@
 
 #include "mecanisms/camera/I2SCamera.h"
 #include "mecanisms/camera/Log.h"
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 int I2SCamera::blocksReceived = 0;
 int I2SCamera::framesReceived = 0;
 int I2SCamera::xres = 640;

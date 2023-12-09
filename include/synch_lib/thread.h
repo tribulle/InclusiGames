@@ -32,6 +32,10 @@ class ThreadList{
             }
         }
 
+        ThreadList(Mecanism* first_mecanism){
+            this->first_mecanism_ = first_mecanism;
+        }
+
 };
 
 #endif

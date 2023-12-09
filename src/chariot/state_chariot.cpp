@@ -5,16 +5,25 @@
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
 void Disabled_person_position::MecanismF(){
-    analogWrite(enA, 255); // Send PWM signal to L298N Enable pin
-    delay(1000);
+
+    Serial.println("CA ARRIVE LA");
+    for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
+        servo.write(posDegrees);
+        Serial.println(posDegrees);
+        delay(20);
+    }
+
+    for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
+        servo.write(posDegrees);
+        Serial.println(posDegrees);
+        delay(20);
+    }
 }
 
 void Valid_person_position::MecanismF(){
-    analogWrite(enA, 255); // Send PWM signal to L298N Enable pin
-    delay(1000);
+
 }
 
 void Invalid_position::MecanismF(){
-    analogWrite(enA, 255); // Send PWM signal to L298N Enable pin
-    delay(1000);
+
 }

@@ -1,6 +1,8 @@
 #ifndef BMP_H
 #define BMP_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #pragma once
 
 //assuming pixel lines have multiples of 4 bytes sizes

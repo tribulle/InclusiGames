@@ -1,6 +1,8 @@
 #ifndef LOG_H
 #define LOG_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #pragma once
 #include "Arduino.h"
 

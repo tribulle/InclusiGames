@@ -1,6 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include <iostream>
 #include "base_class/mecanism.h"
 
