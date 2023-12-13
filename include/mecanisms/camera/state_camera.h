@@ -1,6 +1,8 @@
 #ifndef STATE_CAMERA_H
 #define STATE_CAMERA_H
-
+//////////////////////////////
+// Ne Pas Toucher ce fichier
+//////////////////////////////
 #include "base_class/state.h"
 
 // Variations State_chariot: All the possible state for the Chariot
