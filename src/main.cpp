@@ -30,12 +30,13 @@ void setup() {
     //disabled_person_position->Change_next_mecanism_to(chariot);
 
     //camera_mecanism->Setup();
-    chariot->Setup();
-    //permutation->Setup();
+    //chariot->Setup();
+    permutation->Setup();
 }
 
 void loop() {
     Serial.println("CA START");
     //threadlist->LaunchThread();
-    chariot->LaunchMecanism();
+    //chariot->LaunchMecanism();
+    permutation->LaunchMecanism();
 }

@@ -10,13 +10,13 @@ void Disabled_person_position::MecanismF(){
     for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
         servo.write(posDegrees);
         Serial.println(posDegrees);
-        delay(20);
+        delay(4);
     }
 
     for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
         servo.write(posDegrees);
         Serial.println(posDegrees);
-        delay(20);
+        delay(4);
     }
 }
 

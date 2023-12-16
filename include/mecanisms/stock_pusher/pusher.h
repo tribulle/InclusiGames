@@ -1,15 +1,16 @@
-#ifndef SWAP_H
-#define SWAP_H
+#ifndef PUSHER_H
+#define PUSHER_H
 //////////////////////////////
 // Ne Pas Toucher ce fichier
 //////////////////////////////
 #include <iostream>
 #include "base_class/mecanism.h"
 
-class Permutation : public Mecanism {
+class Pusher : public Mecanism {
+
     public:
         void Setup() override;
-        Permutation(State* state): Mecanism(state){}
+        Pusher(State* state): Mecanism(state){}
     
 };
 
