@@ -28,7 +28,13 @@ class ThreadList{
                 thread t1(&Mecanism::LaunchMecanism, mecanism_pointer);
 
                 t1.join();
-                LaunchMecanismInThread(mecanism_pointer->next_mecanism_);
+
+                if(mecanism_pointer->next_mecanism_ != nullptr){
+                    int len_next_mecanism = sizeof(mecanism_pointer->next_mecanism_)/sizeof(mecanism_pointer->next_mecanism_[0]); //length calculation
+                    for (int e=0; e<len_next_mecanism; e++){
+                        LaunchMecanismInThread(mecanism_pointer->next_mecanism_[e]);
+                    }
+                }
             }
         }
 

@@ -6,7 +6,9 @@
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
 
-
+bool value_sensor;
 void Pusher::Setup(){
-
+    pinMode(LASER, OUTPUT);
+    pinMode(SENSOR, INPUT);
+    digitalWrite(LASER,HIGH);
 }

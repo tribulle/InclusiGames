@@ -9,6 +9,9 @@
 
 #include "mecanisms/permutation/permutation.h"
 #include "mecanisms/permutation/state_permutation.h"
+
+#include "mecanisms/stock_pusher/pusher.h"
+#include "mecanisms/stock_pusher/state_pusher.h"
 //////////////////////////////
 // Ne pas toucher à part pour des tests (suivre la logique qui suit)
 //////////////////////////////
@@ -16,11 +19,14 @@
 Basic_state_camera* basic_state_camera = new Basic_state_camera(nullptr);
 CameraMecanism* camera_mecanism = new CameraMecanism(basic_state_camera);
 
-Disabled_person_position* disabled_person_position = new Disabled_person_position(nullptr);
-Chariot* chariot = new Chariot(disabled_person_position);
+Disabled_person_position_push* disabled_person_position_push = new Disabled_person_position_push(nullptr);
+Chariot* chariot = new Chariot(disabled_person_position_push);
 
 Basic_state_permutation* basic_state_permutation = new Basic_state_permutation(nullptr);
 Permutation* permutation = new Permutation(basic_state_permutation);
+
+State_distrib* state_distrib = new State_distrib(nullptr);
+Pusher* pusher = new Pusher(state_distrib);
 
 ThreadList* threadlist = new ThreadList(chariot);
 

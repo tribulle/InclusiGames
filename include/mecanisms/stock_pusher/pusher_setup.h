@@ -6,4 +6,8 @@
 //////////////////////////////
 #include "pusher.h"
 
+#define LASER 2
+#define SENSOR 3
+
+extern bool value_sensor;
 #endif

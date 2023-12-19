@@ -8,7 +8,7 @@
 class Basic_state_permutation: public State{
     public:
         void MecanismF() override;
-        Basic_state_permutation(Mecanism* next_mecanism) : State(next_mecanism) {}
+        Basic_state_permutation(Mecanism** next_mecanism) : State(next_mecanism) {}
 };
 
 #endif
