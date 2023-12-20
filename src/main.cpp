@@ -33,7 +33,12 @@ ThreadList* threadlist = new ThreadList(chariot);
 void setup() {
     Serial.begin(115200);
     Serial.println("CA SETUP");
-    //disabled_person_position->Change_next_mecanism_to(chariot);
+
+    Mecanism* disabled_person_position_push_next_mec[2] = {pusher,chariot};
+    disabled_person_position_push->Change_next_mecanism_to(disabled_person_position_push_next_mec);
+
+    Mecanism* state_distrib_next_mec[1] = {permutation};
+    state_distrib->Change_next_mecanism_to(state_distrib_next_mec);
 
     //camera_mecanism->Setup();
     //chariot->Setup();
