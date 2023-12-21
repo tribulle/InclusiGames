@@ -34,10 +34,10 @@ void setup() {
     Serial.begin(115200);
     Serial.println("CA SETUP");
 
-    Mecanism* disabled_person_position_push_next_mec[2] = {pusher,chariot};
+    Mecanism* disabled_person_position_push_next_mec[1] = {pusher};
     disabled_person_position_push->Change_next_mecanism_to(disabled_person_position_push_next_mec);
 
-    Mecanism* state_distrib_next_mec[1] = {permutation};
+    Mecanism* state_distrib_next_mec[2] = {permutation,chariot};
     state_distrib->Change_next_mecanism_to(state_distrib_next_mec);
 
     //camera_mecanism->Setup();

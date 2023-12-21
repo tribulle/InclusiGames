@@ -8,13 +8,13 @@
 class State_distrib: public State{
     public:
         void MecanismF() override;
-        State_distrib(Mecanism** next_mecanism) : State(next_mecanism) {}
+        State_distrib(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 class State_stocking: public State{
     public:
         void MecanismF() override;
-        State_stocking(Mecanism** next_mecanism) : State(next_mecanism) {}
+        State_stocking(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 

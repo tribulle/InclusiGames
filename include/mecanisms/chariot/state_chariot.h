@@ -8,25 +8,25 @@
 class Valid_person_position: public State{
     public:
         void MecanismF() override;
-        Valid_person_position(Mecanism** next_mecanism) : State(next_mecanism) {}
+        Valid_person_position(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 class Disabled_person_position_push: public State{
     public:
         void MecanismF() override;
-        Disabled_person_position_push(Mecanism** next_mecanism) : State(next_mecanism) {}
+        Disabled_person_position_push(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 class Disabled_person_position_reset: public State{
     public:
         void MecanismF() override;
-        Disabled_person_position_reset(Mecanism** next_mecanism) : State(next_mecanism) {}
+        Disabled_person_position_reset(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 class Invalid_position: public State{
     public:
         void MecanismF() override;
-        Invalid_position(Mecanism** next_mecanism) : State(next_mecanism) {}
+        Invalid_position(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 #endif

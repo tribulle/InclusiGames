@@ -11,4 +11,9 @@ void Pusher::Setup(){
     pinMode(LASER, OUTPUT);
     pinMode(SENSOR, INPUT);
     digitalWrite(LASER,HIGH);
+    
+    pinMode(vitesseA,OUTPUT);
+    pinMode(vitesseB,OUTPUT);
+    pinMode(directionA,OUTPUT);
+    pinMode(directionB,OUTPUT);
 }
