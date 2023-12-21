@@ -1,31 +1,21 @@
 #include <Arduino.h>
-#include "synch_lib/thread.h"
+#include "main/main.h"
 
-#include "mecanisms/camera/camera.h"
-#include "mecanisms/camera/state_camera.h"
-
-#include "mecanisms/chariot/chariot.h"
-#include "mecanisms/chariot/state_chariot.h"
-
-#include "mecanisms/permutation/permutation.h"
-#include "mecanisms/permutation/state_permutation.h"
-
-#include "mecanisms/stock_pusher/pusher.h"
-#include "mecanisms/stock_pusher/state_pusher.h"
 //////////////////////////////
 // Ne pas toucher à part pour des tests (suivre la logique qui suit)
 //////////////////////////////
 
-Basic_state_camera* basic_state_camera = new Basic_state_camera(nullptr);
+Basic_state_camera* basic_state_camera = new Basic_state_camera(nullptr,nullptr);
 CameraMecanism* camera_mecanism = new CameraMecanism(basic_state_camera);
 
-Disabled_person_position_push* disabled_person_position_push = new Disabled_person_position_push(nullptr);
+Disabled_person_position_push* disabled_person_position_push = new Disabled_person_position_push(nullptr,disabled_person_position_reset);
+Disabled_person_position_reset* disabled_person_position_reset = new Disabled_person_position_reset(nullptr,disabled_person_position_push);
 Chariot* chariot = new Chariot(disabled_person_position_push);
 
-Basic_state_permutation* basic_state_permutation = new Basic_state_permutation(nullptr);
+Basic_state_permutation* basic_state_permutation = new Basic_state_permutation(nullptr,nullptr);
 Permutation* permutation = new Permutation(basic_state_permutation);
 
-State_distrib* state_distrib = new State_distrib(nullptr);
+State_distrib* state_distrib = new State_distrib(nullptr,nullptr);
 Pusher* pusher = new Pusher(state_distrib);
 
 ThreadList* threadlist = new ThreadList(chariot);

@@ -11,7 +11,7 @@ class Basic_state_camera: public State{
         int a;
         void MecanismF() override;
 
-        Basic_state_camera(Mecanism** next_mecanism) : State(next_mecanism) {}
+        Basic_state_camera(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
 
 #endif

@@ -15,12 +15,17 @@ class Mecanism: public Context{
         Mecanism** next_mecanism_ = nullptr; //What is the next mecanism (from state_)
 
         void TransitionTo(State* newState) override { // Function to change dynamiccaly the current State (and so the membres of this current Mecanism)
+        
+            if (newState == nullptr) return;
+
             this->state_ = newState;
             if (this->state_ != nullptr) this->next_mecanism_ = this->state_->next_mecanism_;
+            else this->next_mecanism_ = nullptr;
         }
 
         void LaunchMecanism(){  // Launch the mecanism (from state_)
-            state_->MecanismF();
+            this->state_->MecanismF();
+            TransitionTo(this->state_->next_state_);
         }
 
         virtual void Setup() = 0;
