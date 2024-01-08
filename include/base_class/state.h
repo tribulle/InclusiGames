@@ -3,7 +3,7 @@
 //////////////////////////////
 // Ne Pas Toucher ce fichier
 //////////////////////////////
-
+#include <Arduino.h>
 class Mecanism;
 
 // Definition of State (Cross-referenced with Mecanism (Context)) It's from the State Pattern (Design patterns for OOP)
@@ -20,7 +20,14 @@ class State{
         }
 
         void Change_next_mecanism_to(Mecanism** next_mecanism){
+            //Serial.println("DEBUG CHANGE MEC");
+            //Serial.println(this->next_mecanism_==nullptr);
+            //Serial.println(next_mecanism==nullptr);
             this->next_mecanism_ = next_mecanism;
+        }
+
+        void Change_next_state_to(State* next_state){
+            this->next_state_ = next_state;
         }
 };
 

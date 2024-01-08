@@ -1,7 +1,8 @@
 {
     "C_Cpp.dimInactiveRegions": true,
     "files.associations": {
-        "new": "cpp"
+        "new": "cpp",
+        "thread": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

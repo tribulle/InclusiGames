@@ -8,7 +8,7 @@ void Disabled_person_position_push::MecanismF(){
 
     for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
         servo.write(posDegrees);
-        Serial.println(posDegrees);
+        //Serial.println(posDegrees);
         delay(4);
     }
 }
@@ -17,7 +17,7 @@ void Disabled_person_position_reset::MecanismF(){
 
     for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
         servo.write(posDegrees);
-        Serial.println(posDegrees);
+        //Serial.println(posDegrees);
         delay(4);
     }
 }
