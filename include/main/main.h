@@ -25,4 +25,5 @@ extern Disabled_person_position_reset* disabled_person_position_reset;
 extern Basic_state_permutation* basic_state_permutation;
 extern State_distrib* state_distrib;
 
+
 #endif

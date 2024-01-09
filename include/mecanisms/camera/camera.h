@@ -9,7 +9,7 @@
 class CameraMecanism : public Mecanism {
     public:
         void Setup() override;
-        CameraMecanism(State* state): Mecanism(state){}
+        CameraMecanism(State* state, char* name): Mecanism(state, name){}
 };
 
 #endif

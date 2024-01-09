@@ -11,6 +11,7 @@ class State{
     public:
         Mecanism** next_mecanism_;   //What should be the next mecanism (for this current state)
         State* next_state_;
+        int nb_next_mecs_;
 
         virtual void MecanismF() = 0;        //What should do the mecanism (for this current state)
 
@@ -19,11 +20,12 @@ class State{
             this->next_state_ = next_state;
         }
 
-        void Change_next_mecanism_to(Mecanism** next_mecanism){
+        void Change_next_mecanism_to(Mecanism** next_mecanism, int size){
             //Serial.println("DEBUG CHANGE MEC");
             //Serial.println(this->next_mecanism_==nullptr);
             //Serial.println(next_mecanism==nullptr);
             this->next_mecanism_ = next_mecanism;
+            this->nb_next_mecs_ = size;
         }
 
         void Change_next_state_to(State* next_state){

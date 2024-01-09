@@ -10,7 +10,7 @@ class Pusher : public Mecanism {
 
     public:
         void Setup() override;
-        Pusher(State* state): Mecanism(state){}
+        Pusher(State* state, char* name): Mecanism(state, name){}
     
 };
 

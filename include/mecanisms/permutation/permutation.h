@@ -9,7 +9,7 @@
 class Permutation : public Mecanism {
     public:
         void Setup() override;
-        Permutation(State* state): Mecanism(state){}
+        Permutation(State* state, char* name): Mecanism(state, name){}
     
 };
 
