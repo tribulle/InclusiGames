@@ -25,7 +25,7 @@ class Mecanism: public Context{
         }
 
         void LaunchMecanism(){  // Launch the mecanism (from state_)
-            //this->state_->MecanismF();
+            this->state_->MecanismF();
             Serial.print("MEC: ");
             Serial.println(this->name_);
             Serial.print("MEC: Changement d'état, next state null: ");

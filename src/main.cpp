@@ -85,7 +85,7 @@ void setup() {
             Serial.print(chariot->ShowState()->next_mecanism_[0]==nullptr);
             Serial.println(chariot->ShowState()->next_mecanism_[1]==nullptr);
     //camera_mecanism->Setup();
-    //chariot->Setup();
+    chariot->Setup();
     //Serial.println(chariot->ShowState()->next_mecanism_==nullptr);
     //permutation->Setup();
     Serial.println("SETUP THREAD");
@@ -118,8 +118,8 @@ void loop() {
             Serial.print(chariot->ShowState()->next_mecanism_==nullptr);
             //Serial.print(chariot->ShowState()->next_mecanism_[0]==nullptr);
             //Serial.println(chariot->ShowState()->next_mecanism_[1]==nullptr);
-    threadlist->LaunchThread();
-    //chariot->LaunchMecanism();
+    //threadlist->LaunchThread();
+    chariot->LaunchMecanism();
     //permutation->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
     Serial.println("FIN DE LA LOOP");

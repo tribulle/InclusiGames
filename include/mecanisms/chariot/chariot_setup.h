@@ -10,6 +10,9 @@
 const int potpin = A0;
 const int val = 90;
 
+const int enA = 13;
+const int in1 = 12;
+const int in2 = 27;
 extern Servo servo;
 
 #endif

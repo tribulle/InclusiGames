@@ -1,4 +1,5 @@
 #include "mecanisms/permutation/permutation_setup.h"
+#include "extender.h"
 //////////////////////////////
 // Définitions des variables de chariot_setup.h
 // Chariot::Setup() peut être modifié à guise (pour correspondre à la partie vois setup() habituelle du main.cpp [sans la configuration Arduino])
@@ -17,7 +18,7 @@ void ICACHE_RAM_ATTR emergencySwitchHandler(){
 Stepper* myStepper;
 
 void Permutation::Setup(){
-  myStepper = new Stepper(stepsPerRevolution, STEPPER_IN1,STEPPER_IN2,STEPPER_IN3,STEPPER_IN4);
+  myStepper = new Stepper(stepsPerRevolution, P4,P5,P6,P7);
   myStepper->setSpeed(60);
 
   

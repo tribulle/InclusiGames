@@ -6,16 +6,19 @@
 // Variations State_chariot: All the possible state for the Chariot
 void Disabled_person_position_push::MecanismF(){
 
-    for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
+    analogWrite(enA, 255);
+    for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
         servo.write(posDegrees);
         //Serial.println(posDegrees);
         delay(4);
     }
+    delay(5000);
+    analogWrite(enA, 0);
 }
 
 void Disabled_person_position_reset::MecanismF(){
 
-    for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
+    for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
         servo.write(posDegrees);
         //Serial.println(posDegrees);
         delay(4);
