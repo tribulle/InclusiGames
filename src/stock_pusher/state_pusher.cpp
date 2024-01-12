@@ -22,19 +22,23 @@ void State_distrib::MecanismF(){
     pcf8574_2.digitalWrite(vitesseA,LOW); // Eteint le moteur
     pcf8574_2.digitalWrite(vitesseB,LOW); // Eteint le moteur*/
     Serial.println("run at speed=-200");
-    motorDriver->dcMotorRun(MOTOR_CHA, -200);
-    motorDriver->dcMotorRun(MOTOR_CHB, 200);
-    delay(1000);
+    //motorDriver->dcMotorRun(MOTOR_CHA, -200);
+    //motorDriver->dcMotorRun(MOTOR_CHB, 200);
+    analogWrite(enAP, -200);
+    analogWrite(enBP, -200);
+    delay(5000);
 
     // stop 2 motors
     Serial.println("stop");
-    motorDriver->dcMotorStop(MOTOR_CHA);
-    motorDriver->dcMotorStop(MOTOR_CHB);
-    delay(1000);
+    //motorDriver->dcMotorStop(MOTOR_CHA);
+    //motorDriver->dcMotorStop(MOTOR_CHB);
+    analogWrite(enAP, 0);
+    analogWrite(enBP, 0);
     
 }
 
 void State_stocking::MecanismF(){
+    Serial.println("Hein??");
     /*
     pcf8574_2.digitalWrite(vitesseA,HIGH); // Allume le moteur
     pcf8574_2.digitalWrite(vitesseB,HIGH); // Allume le moteur

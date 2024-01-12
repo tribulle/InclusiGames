@@ -15,15 +15,13 @@
 #include "mecanisms/stock_pusher/pusher.h"
 #include "mecanisms/stock_pusher/state_pusher.h"
 
-/////////////////////////
-// DECLARATION DES STATES
-////////////////////////
 
+/*
 extern Basic_state_camera* basic_state_camera;
 extern Disabled_person_position_push* disabled_person_position_push;
 extern Disabled_person_position_reset* disabled_person_position_reset;
 extern Basic_state_permutation* basic_state_permutation;
 extern State_distrib* state_distrib;
-
+*/
 
 #endif

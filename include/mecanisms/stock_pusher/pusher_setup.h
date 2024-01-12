@@ -19,6 +19,14 @@ const int vitesseB = P2;
 const int directionA = P1;
 const int directionB = P3;
 
+const int enAP = 12;
+const int enBP = 14;
+
+const int In1 = 27;
+const int In2 = 33;
+const int In3 = 15;
+const int In4 = 32;
+
 extern bool value_sensor;
 
 extern MotorDriver* motorDriver;

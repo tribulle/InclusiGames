@@ -31,7 +31,7 @@ class Mecanism: public Context{
             Serial.print("MEC: Changement d'état, next state null: ");
             Serial.println(this->state_->next_state_==nullptr);
             TransitionTo(this->state_->next_state_);
-            delay(3000);
+            delay(1000);
         }
 
         virtual void Setup() = 0;

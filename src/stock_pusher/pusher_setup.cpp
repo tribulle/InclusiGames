@@ -14,6 +14,7 @@ MotorDriver* motorDriver;
 bool value_sensor;
 void Pusher::Setup(){
     // LASER RECEPTEUR 1
+    /*
     pcf8574.pinMode(LASER, OUTPUT);
     pcf8574.pinMode(SENSOR, INPUT);
     pcf8574.digitalWrite(LASER,HIGH);
@@ -22,9 +23,17 @@ void Pusher::Setup(){
     pcf8574.pinMode(LASER2, OUTPUT);
     pcf8574.pinMode(SENSOR2, INPUT);
     pcf8574.digitalWrite(LASER2,HIGH);
+    */
     
-    Wire.begin();
-    motorDriver->init();
+    pinMode(enAP, OUTPUT);
+    pinMode(enBP, OUTPUT);
+    pinMode(In1, OUTPUT);
+    pinMode(In2, OUTPUT);
+    pinMode(In3, OUTPUT);
+    pinMode(In4, OUTPUT);
+
+    //Wire.begin();
+    //motorDriver->init();
     //pcf8574_2.pinMode(vitesseA,OUTPUT);
     //pcf8574_2.pinMode(vitesseB,OUTPUT);
     //pcf8574_2.pinMode(directionA,OUTPUT);
