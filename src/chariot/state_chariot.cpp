@@ -4,7 +4,7 @@
 // Basic_state::MecanismF() peut être modifié à guise (pour correspondre à la partie vois loop() habituelle du main.cpp)
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
-void Disabled_person_position_push::MecanismF(){
+void Chariot_state_push::MecanismF(){
 
     analogWrite(enA, 255);
     for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
@@ -15,7 +15,7 @@ void Disabled_person_position_push::MecanismF(){
     delay(5000);
 }
 
-void Disabled_person_position_reset::MecanismF(){
+void Chariot_state_reset::MecanismF(){
 
     for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
         servo.write(posDegrees);
@@ -23,12 +23,4 @@ void Disabled_person_position_reset::MecanismF(){
         analogWrite(enA, 0);
         delay(4);
     }
-}
-
-void Valid_person_position::MecanismF(){
-
-}
-
-void Invalid_position::MecanismF(){
-
 }

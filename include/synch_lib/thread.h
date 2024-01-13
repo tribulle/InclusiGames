@@ -15,12 +15,11 @@ using namespace std;
 // Typically some mecanism don't have a next_mecanism_ (by default = nullptr) so the ThreadList will stop.
 class ThreadList{
     public:
-        Mecanism* first_mecanism_;
         int mec_nb_x;
 
-        void LaunchThread(){
+        void LaunchThread(Mecanism* first_mecanism){
             mec_nb_x=0;
-            LaunchMecanismInThread(first_mecanism_);
+            LaunchMecanismInThread(first_mecanism);
         }
 
         void LaunchMecanismInThread(Mecanism* mecanism_pointer){
@@ -74,10 +73,6 @@ class ThreadList{
             }else{
                 Serial.println("Error");
             }
-        }
-
-        ThreadList(Mecanism* first_mecanism){
-            this->first_mecanism_ = first_mecanism;
         }
 
 };
