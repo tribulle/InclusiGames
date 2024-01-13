@@ -1,6 +1,6 @@
-#include "mecanisms/camera/OV7670.h"
-#include "mecanisms/camera/XClk.h"
-#include "mecanisms/camera/Log.h"
+#include "OV7670.h"
+#include "XClk.h"
+#include "Log.h"
 //////////////////////////////
 // Ne Pas Toucher ce fichier
 //////////////////////////////

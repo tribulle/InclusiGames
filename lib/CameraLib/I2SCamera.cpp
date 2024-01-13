@@ -3,8 +3,8 @@
 //by Ivan Grokhotkov
 //released under Apache License 2.0
 
-#include "mecanisms/camera/I2SCamera.h"
-#include "mecanisms/camera/Log.h"
+#include "I2SCamera.h"
+#include "Log.h"
 //////////////////////////////
 // Ne Pas Toucher ce fichier
 //////////////////////////////

@@ -18,6 +18,7 @@ class State{
         State(Mecanism** next_mecanism, State* next_state){
             this->next_mecanism_ = next_mecanism;
             this->next_state_ = next_state;
+            this->nb_next_mecs_ = 0;
         }
 
         void Change_next_mecanism_to(Mecanism** next_mecanism, int size){
@@ -26,6 +27,10 @@ class State{
             //Serial.println(next_mecanism==nullptr);
             this->next_mecanism_ = next_mecanism;
             this->nb_next_mecs_ = size;
+            if(next_mecanism == nullptr){
+                this->nb_next_mecs_ = 0;
+                Serial.println("Change_next_mecanism_to ATTENTION : next_mecanism_ == Nullptr");
+            }
         }
 
         void Change_next_state_to(State* next_state){

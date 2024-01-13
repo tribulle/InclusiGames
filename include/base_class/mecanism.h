@@ -25,20 +25,29 @@ class Mecanism: public Context{
         }
 
         void LaunchMecanism(){  // Launch the mecanism (from state_)
-            this->state_->MecanismF();
-            Serial.print("MEC: ");
+            Serial.print("MEC: Lancement du mécanisme: ");
             Serial.println(this->name_);
-            Serial.print("MEC: Changement d'état, next state null: ");
-            Serial.println(this->state_->next_state_==nullptr);
-            TransitionTo(this->state_->next_state_);
+
+            if(this->state_ != nullptr){
+                this->state_->MecanismF();
+                TransitionTo(this->state_->next_state_);
+            }
+            else Serial.println("MEC: FATAL ERROR this->state_ == nullptr ");
+            
             delay(1000);
         }
 
         virtual void Setup() = 0;
+
+        void SetupDataRefresh(){
+            this->RefreshStateData();
+            this->Setup();
+        }
         
         Mecanism(State* state, char* name){ // constructor
             this->state_ = state;
             this->name_ = name;
+            this->nb_next_mecs_ = 0;
         }
 
         State* ShowState(){
@@ -49,12 +58,14 @@ class Mecanism: public Context{
             if (this->state_ != nullptr){
                 this->next_mecanism_ = this->state_->next_mecanism_;
                 this->nb_next_mecs_ = this->state_->nb_next_mecs_;
-                Serial.print("RefreshStateData:next_mec changing: ");
+                Serial.print("RefreshStateData: next_mec changing: ");
                 Serial.print(this->next_mecanism_ == nullptr);
                 Serial.println(this->nb_next_mecs_);
             }
             else{
                 this->next_mecanism_ = nullptr;
+                this->nb_next_mecs_ = 0;
+                Serial.println("RefreshStateData ATTENTION: STATE == Nullptr");
             }
         }
 };

@@ -3,7 +3,7 @@
 //by Ivan Grokhotkov
 //released under Apache License 2.0
 
-#include "mecanisms/camera/XClk.h"
+#include "XClk.h"
 #include "driver/ledc.h"
 //////////////////////////////
 // Ne Pas Toucher ce fichier
