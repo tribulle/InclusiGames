@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "main/main.h"
+int test;
 
 //////////////////////////////
 // DECLARATION DES ETATS (STATE) DE CHAQUE MECANISME avec (nullptr,nullptr)
