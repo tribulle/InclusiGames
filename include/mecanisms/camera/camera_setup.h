@@ -18,16 +18,7 @@
 
 #include <BluetoothSerial.h>
 
-BluetoothSerial SerialBT;
-
-int i=0;
-int i1=0;
-unsigned char cl;
-unsigned char cm;
-unsigned char rgb[3];
-unsigned char arrcolor[3][80][60];
-unsigned int timecnt;
-int compt=0;
+extern BluetoothSerial SerialBT;
 
 const int SIOD = 23; //SDA
 const int SIOC = 22; //SCL

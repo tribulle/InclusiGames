@@ -5,6 +5,14 @@
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
 
+int i=0;
+int i1=0;
+unsigned char cl;
+unsigned char cm;
+unsigned char rgb[3];
+unsigned char arrcolor[3][80][60];
+unsigned int timecnt;
+int compt=0;
 
 void Basic_state_camera::MecanismF(){
  if(SerialBT.available()){

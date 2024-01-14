@@ -7,6 +7,7 @@
 //////
 OV7670* camera;
 char bmpHeader[BMP::headerSize];
+BluetoothSerial SerialBT;
 
 /*void serve()
 {
@@ -64,7 +65,7 @@ char bmpHeader[BMP::headerSize];
 
 void CameraMecanism::Setup(){
 
-  Serial.begin(9600);
+  //Serial.begin(9600); //ne met pas le Serial.begin dans le setup
 
    SerialBT.begin("ESP32_bluetooth"); // le nom de bluetooth: "ESP32_bluetooth"
    SerialBT.setPin("1234");   // la code pour connection
