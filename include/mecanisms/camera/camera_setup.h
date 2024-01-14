@@ -16,6 +16,19 @@
 #include <WiFiClient.h>
 #include "BMP.h"
 
+#include <BluetoothSerial.h>
+
+BluetoothSerial SerialBT;
+
+int i=0;
+int i1=0;
+unsigned char cl;
+unsigned char cm;
+unsigned char rgb[3];
+unsigned char arrcolor[3][80][60];
+unsigned int timecnt;
+int compt=0;
+
 const int SIOD = 23; //SDA
 const int SIOC = 22; //SCL
 
@@ -34,12 +47,10 @@ const int D6 = 12;
 const int D7 = 4;
 
 char* const ssid     = "Esp_32_Test";
-char* const password = "12345678910";
+char* const password = "12345678";
 
 extern OV7670* camera; //global variable
-extern WiFiMulti* wifiMulti;
-extern WiFiServer* server;
-extern unsigned char bmpHeader[BMP::headerSize];
-extern void serve();
+extern char bmpHeader[BMP::headerSize];
+
 
 #endif

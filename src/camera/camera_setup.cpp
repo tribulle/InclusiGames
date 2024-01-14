@@ -6,11 +6,9 @@
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
 OV7670* camera;
-WiFiMulti* wifiMulti;
-WiFiServer* server;
-unsigned char bmpHeader[BMP::headerSize];
+char bmpHeader[BMP::headerSize];
 
-void serve()
+/*void serve()
 {
   WiFiClient client = server->available();
   if (client) 
@@ -62,32 +60,17 @@ void serve()
     client.stop();
     Serial.println("Client Disconnected.");
   }  
-}
+}*/ //c'est la serve pour le wifi, du coups, je mets en commantaire
 
 void CameraMecanism::Setup(){
 
-  server = new WiFiServer(80);
-  Serial.println("\n[*] Creating AP");
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP(ssid, password);
-  Serial.print("[+] AP Created with IP Gateway ");
-  Serial.println(WiFi.softAPIP());
+  Serial.begin(9600);
 
-  /*
-  Serial.begin(115200);
+   SerialBT.begin("ESP32_bluetooth"); // le nom de bluetooth: "ESP32_bluetooth"
+   SerialBT.setPin("1234");   // la code pour connection
+    Serial.printf("BT initial ok and ready to pair. \r\n");
 
-  wifiMulti = new WiFiMulti();
-  wifiMulti->addAP(ssid1, password1);
-  //wifiMulti->addAP(ssid2, password2);
-  Serial.println("Connecting Wifi...");
-  Serial.println(wifiMulti->run());
-  if(wifiMulti->run() == WL_CONNECTED) {
-      Serial.println("");
-      Serial.println("WiFi connected");
-      Serial.println("IP address: ");
-      Serial.println(WiFi.localIP());
-  */
   camera = new OV7670(OV7670::Mode::QQQVGA_RGB565, SIOD, SIOC, VSYNC, HREF, XCLK, PCLK, D0, D1, D2, D3, D4, D5, D6, D7);
   BMP::construct16BitHeader(bmpHeader, camera->xres, camera->yres);
-  server->begin();
+ 
 }
