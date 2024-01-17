@@ -10,13 +10,22 @@
 Servo servo;
 
 void Chariot::Setup(){
-    pinMode(enA, OUTPUT);
-    pinMode(in1, OUTPUT);
-    pinMode(in2, OUTPUT);
+    pcf8574_2.pinMode(enA, OUTPUT);
+    pcf8574_2.pinMode(in1, OUTPUT);
+    pcf8574_2.pinMode(in2, OUTPUT);
+    pcf8574_2.pinMode(enB, OUTPUT);
+    pcf8574_2.pinMode(in3, OUTPUT);
+    pcf8574_2.pinMode(in4, OUTPUT);
+    pcf8574_2.digitalWrite(in1, LOW);
+    pcf8574_2.digitalWrite(in2, HIGH);
+  Serial.print("Init pcf8574...");
+	if (pcf8574_2.begin()){
+		Serial.println("OK");
+	}else{
+		Serial.println("KO");
+	}
 
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
-
+  
     servo.setPeriodHertz(50);
     servo.attach(21, 500, 2400);
     Serial.println("****************************************SETUP-ED*******************************");

@@ -18,6 +18,7 @@ void ICACHE_RAM_ATTR emergencySwitchHandler(){
 Stepper* myStepper;
 
 void Permutation::Setup(){
+
   myStepper = new Stepper(stepsPerRevolution, P4,P5,P6,P7);
   myStepper->setSpeed(60);
 

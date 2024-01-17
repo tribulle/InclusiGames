@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "main/main.h"
+#include<Wire.h>
 
 
 //////////////////////////////
@@ -41,7 +42,17 @@ Mecanism* camera_state_NEXTMEC[1] = {pusher_mecanism};
 ThreadList* threadlist;
 
 void setup() {
+    Wire.begin();
+    Wire.setClock(4000);
+      Serial.print("Init pcf8574...");
+	if (pcf8574.begin()){
+		Serial.println("OK");
+	}else{
+		Serial.println("KO");
+	}
 
+    pcf8574.pinMode(P1,OUTPUT);//test
+    pcf8574.pinMode(P2,INPUT);//test
     Serial.println("SETUP: START");
 
     Serial.begin(115200);
@@ -88,6 +99,7 @@ void setup() {
 }
 
 void loop() {
+   
     Serial.println("LOOP: START");
 
 ////////////////////////////////////////////////////////////////////////
@@ -98,6 +110,8 @@ void loop() {
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
     //pusher_mecanism->LaunchMecanism();
+    pcf8574.digitalWrite(P1,HIGH);//test
+    Serial.println(pcf8574.digitalRead(P2));// test
 
     Serial.println("LOOP: END");
 }

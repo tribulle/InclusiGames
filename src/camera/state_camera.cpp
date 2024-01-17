@@ -49,7 +49,7 @@ void Basic_state_camera::MecanismF(){
   }
   SerialBT.print(compt);
   SerialBT.println("_end");
-  timecnt = micros()-timecnt;
+  //timecnt = micros()-timecnt;  c'est pour voir le temps de transmission
   //Serial.printf("timecnt=%d\n",timecnt);
   delay(60);
   //serve();

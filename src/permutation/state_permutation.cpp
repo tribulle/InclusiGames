@@ -7,10 +7,10 @@
 
 void Basic_state_permutation::MecanismF(){
   Serial.println("Rotating Clockwise...");
-  myStepper->step(stepsPerRevolution);
+  myStepper->step(890);
   delay(500);
   Serial.println("Rotating Anti-Clockwise...");
-  myStepper->step(-stepsPerRevolution);
+  myStepper->step(-890);
   delay(500);
 
 
