@@ -7,7 +7,7 @@
 //////
 OV7670* camera;
 char bmpHeader[BMP::headerSize];
-BluetoothSerial SerialBT;
+//BluetoothSerial SerialBT;
 
 /*void serve()
 {
@@ -67,9 +67,9 @@ void CameraMecanism::Setup(){
 
   //Serial.begin(9600); //ne met pas le Serial.begin dans le setup
 
-   SerialBT.begin("ESP32_bluetooth"); // le nom de bluetooth: "ESP32_bluetooth"
-   SerialBT.setPin("1234");   // la code pour connection
-    Serial.printf("BT initial ok and ready to pair. \r\n");
+   //SerialBT.begin("ESP32_bluetooth"); // le nom de bluetooth: "ESP32_bluetooth"
+   //SerialBT.setPin("1234");   // la code pour connection
+    //Serial.printf("BT initial ok and ready to pair. \r\n");
 
   camera = new OV7670(OV7670::Mode::QQQVGA_RGB565, SIOD, SIOC, VSYNC, HREF, XCLK, PCLK, D0, D1, D2, D3, D4, D5, D6, D7);
   BMP::construct16BitHeader(bmpHeader, camera->xres, camera->yres);

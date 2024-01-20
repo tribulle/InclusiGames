@@ -1,5 +1,6 @@
 #include "mecanisms/camera/state_camera.h"
 #include "mecanisms/camera/camera_setup.h"
+#include "synch_lib/bluetooth.h"
 //////////////////////////////
 // Basic_state::MecanismF() peut être modifié à guise (pour correspondre à la partie vois loop() habituelle du main.cpp)
 //////////////////////////////

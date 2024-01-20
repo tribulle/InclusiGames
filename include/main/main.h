@@ -2,6 +2,7 @@
 #define MAIN_H
 #include "base_class/state.h"
 #include "synch_lib/thread.h"
+#include "synch_lib/bluetooth.h"
 
 #include "mecanisms/camera/camera.h"
 #include "mecanisms/camera/state_camera.h"

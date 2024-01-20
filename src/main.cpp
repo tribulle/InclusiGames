@@ -2,7 +2,6 @@
 #include "main/main.h"
 #include<Wire.h>
 
-
 //////////////////////////////
 // DECLARATION DES ETATS (STATE) DE CHAQUE MECANISME avec (nullptr,nullptr)
 //////////////////////////////
@@ -88,6 +87,11 @@ void setup() {
     threadlist = new ThreadList();
 
 ////////////////////////////////////////////////////////////////////////
+    Serial.println("SETUP: BLUETOOTH");
+
+    BluetoothSetup();
+
+////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: INITIALIZE MECANISM'S INITIAL STATE"); // Juste pour choisir l'état "d'origine" du mécanisme 
 
     camera_mecanism->TransitionTo(camera_state);
@@ -102,6 +106,30 @@ void loop() {
    
     Serial.println("LOOP: START");
 
+    if(THREAD_BLUETOOTH_NEEDED){
+        while(!SerialBT.connected()){}
+        Serial.println("LOOP: Bluetooth: Connected");
+        while(!SerialBT.available()){}
+        Serial.println("LOOP: Bluetooth: Données reçues");
+
+        String data = SerialBT.readString();
+        Serial.println(data);
+
+        int data_length = data.length();
+        int place = 0 ;
+        if(data[0] == 'p'){
+            place = (data.substring(2,data_length-1)).toInt();
+            Serial.print("LOOP: Bluetooth: Piocher: Place:");
+            Serial.println(place);
+        }else if(data[0] == 'j'){
+            place = (data.substring(2,data_length-1)).toInt();
+            Serial.print("LOOP: Bluetooth: Jouer: Place:");
+            Serial.println(place);
+        }else{
+            Serial.println("LOOP: Bluetooth: Données reçues INCORRECTES");
+        }
+
+    }else{
 ////////////////////////////////////////////////////////////////////////
     Serial.println("LOOP: MECANISM LAUNCH");
     //threadlist->LaunchThread(chariot_mecanism);
@@ -112,6 +140,7 @@ void loop() {
     //pusher_mecanism->LaunchMecanism();
     pcf8574.digitalWrite(P1,HIGH);//test
     Serial.println(pcf8574.digitalRead(P2));// test
+    }
 
     Serial.println("LOOP: END");
 }
