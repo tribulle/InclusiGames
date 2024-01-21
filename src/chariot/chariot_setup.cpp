@@ -18,12 +18,7 @@ void Chariot::Setup(){
     pcf8574_2.pinMode(in4, OUTPUT);
     pcf8574_2.digitalWrite(in1, LOW);
     pcf8574_2.digitalWrite(in2, HIGH);
-  Serial.print("Init pcf8574...");
-	if (pcf8574_2.begin()){
-		Serial.println("OK");
-	}else{
-		Serial.println("KO");
-	}
+  
 
   
     servo.setPeriodHertz(50);

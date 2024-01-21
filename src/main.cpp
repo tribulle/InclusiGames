@@ -41,20 +41,29 @@ Mecanism* camera_state_NEXTMEC[1] = {pusher_mecanism};
 ThreadList* threadlist;
 
 void setup() {
-    Wire.begin();
-    Wire.setClock(4000);
-      Serial.print("Init pcf8574...");
+    Serial.begin(115200);
+    //Wire.begin();
+    //Wire.setClock(4000);
+   
+
+    pcf8574.pinMode(P1,OUTPUT);//test
+    pcf8574.pinMode(P2,INPUT);//test
+    Serial.println("SETUP: START");
+   
+    Serial.print("Init pcf8574...");
 	if (pcf8574.begin()){
 		Serial.println("OK");
 	}else{
 		Serial.println("KO");
 	}
-
-    pcf8574.pinMode(P1,OUTPUT);//test
-    pcf8574.pinMode(P2,INPUT);//test
-    Serial.println("SETUP: START");
-
-    Serial.begin(115200);
+    pcf8574.pinMode(P3,INPUT);//test
+    Serial.print("Init pcf8574_2...");
+	if (pcf8574_2.begin()){
+		Serial.println("OK");
+	}else{
+		Serial.println("KO");
+	}
+    
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: CHANGE NEXT_MECANISM"); // CHANGE NEXT_MECANISM (mettre nullptr ou enlever la ligne si aucun mécanisme ne suit)
@@ -77,9 +86,9 @@ void setup() {
     Serial.println("SETUP: LANCEMENT MECANISM->DATA_STATE_REFRESH() ET MECANISM->SETUP()"); // Obligatoire pour pouvoir utiliser un mécanisme (mettre en commentaire les mécanismes non brancher pour éviter tous problèmes possible)
 
     //camera_mecanism->Setup();
-    //chariot_mecanism->Setup();
+    chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
-    pusher_mecanism->Setup();
+    //pusher_mecanism->Setup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: THREAD SETUP"); // 1 Thread permet de lancer une séquence de mécanismes (on peut lancer un mécanisme sans passer par un thread)
@@ -138,7 +147,7 @@ void loop() {
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
     //pusher_mecanism->LaunchMecanism();
-    pcf8574.digitalWrite(P1,HIGH);//test
+    pcf8574.digitalWrite(P3,HIGH);//test
     Serial.println(pcf8574.digitalRead(P2));// test
     }
 
