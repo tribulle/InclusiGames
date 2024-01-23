@@ -6,9 +6,13 @@
 // Variations State_chariot: All the possible state for the Chariot
 
 void Draw_state_stockage::MecanismF(){
-
+  int pos = this->card_position;
+  Serial.print("DRAW: Card pos:");
+  Serial.print(pos);
 }
 
 void Play_state_stockage::MecanismF(){
-
+  int pos = this->card_position;
+  Serial.print("PLAY: Card pos:");
+  Serial.print(pos);
 }

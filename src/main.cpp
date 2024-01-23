@@ -156,14 +156,23 @@ void loop() {
             place = (data.substring(2,data_length-1)).toInt();
             Serial.print("LOOP: Bluetooth: Piocher: Place:");
             Serial.println(place);
+            stockage_state_draw->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_draw);
+            stockage_mecanism->LaunchMecanism(); //Pour les tests
+            
+            SerialBT.print("f");
 
         }else if(data[0] == 'j'){
 
             place = (data.substring(2,data_length-1)).toInt();
             Serial.print("LOOP: Bluetooth: Jouer: Place:");
             Serial.println(place);
+            stockage_state_play->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_play);
+            stockage_mecanism->LaunchMecanism(); //Pour les tests
+
+            SerialBT.print("f");
+            
 
         }else{
             Serial.println("LOOP: Bluetooth: Données reçues INCORRECTES");
