@@ -6,7 +6,9 @@
 // Variations State_chariot: All the possible state for the Chariot
 void Chariot_state_push::MecanismF(){
 
-    pcf8574_2.digitalWrite(enA, HIGH);// pcf8574 no analogWrite du coups pour la vitesse c'est pas facile à changer....
+    //pcf8574_2.digitalWrite(enA, HIGH);// pcf8574 no analogWrite du coups pour la vitesse c'est pas facile à changer....
+   
+    pcf8574_2.digitalWrite(enA,HIGH);
     pcf8574_2.digitalWrite(enB,HIGH);
     pcf8574_2.digitalWrite(in1, LOW);
     pcf8574_2.digitalWrite(in2, HIGH);//demarrer un motor

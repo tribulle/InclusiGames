@@ -8,12 +8,14 @@
 //////////////////////////////
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
-
+// pour la connection de steppeur faut connecter 1,3 et 2,4
 MotorDriver motor;
 
 bool value_sensor;
 void Pusher::Setup(){
      motor.init();
+
+
     // LASER RECEPTEUR 1
     /*
     pcf8574.pinMode(LASER, OUTPUT);

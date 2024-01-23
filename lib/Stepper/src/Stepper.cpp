@@ -130,7 +130,7 @@ Stepper::Stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
   //pinMode(this->motor_pin_1, OUTPUT);
   //pinMode(this->motor_pin_2, OUTPUT);
   //pinMode(this->motor_pin_3, OUTPUT);
-  //pinMode(this->motor_pin_4, OUTPUT);//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////:
+  //pinMode(this->motor_pin_4, OUTPUT
   //pcf8574.pinMode(this->motor_pin_1, OUTPUT);// voir au main.cpp
   //pcf8574.pinMode(this->motor_pin_2, OUTPUT);
   //pcf8574.pinMode(this->motor_pin_3, OUTPUT);
@@ -163,11 +163,11 @@ Stepper::Stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
   this->motor_pin_5 = motor_pin_5;
 
   // setup the pins on the microcontroller:
-  pcf8574.pinMode(this->motor_pin_1, OUTPUT);
-  pcf8574.pinMode(this->motor_pin_2, OUTPUT);
-  pcf8574.pinMode(this->motor_pin_3, OUTPUT);
-  pcf8574.pinMode(this->motor_pin_4, OUTPUT);
-  pcf8574.pinMode(this->motor_pin_5, OUTPUT);
+  //pcf8574.pinMode(this->motor_pin_1, OUTPUT);
+  //pcf8574.pinMode(this->motor_pin_2, OUTPUT);
+  //pcf8574.pinMode(this->motor_pin_3, OUTPUT);
+  //pcf8574.pinMode(this->motor_pin_4, OUTPUT);
+  //pcf8574.pinMode(this->motor_pin_5, OUTPUT);
 
   // pin_count is used by the stepMotor() method:
   this->pin_count = 5;

@@ -22,7 +22,8 @@ void State_distrib::MecanismF(){
     pcf8574_2.digitalWrite(vitesseA,LOW); // Eteint le moteur
     pcf8574_2.digitalWrite(vitesseB,LOW); // Eteint le moteur( test with l298n)*/
     // drive 2 DC motors at speed=200, anticlockwise
-    Serial.println("run at speed=-255");
+    
+    /*Serial.println("run at speed=-255");
     motor.dcMotorRun(MOTOR_CHA, -255);
     motor.dcMotorRun(MOTOR_CHB, -255);
     delay(3000);
@@ -36,7 +37,7 @@ void State_distrib::MecanismF(){
     Serial.println("brake");
     motor.dcMotorBrake(MOTOR_CHA);
     motor.dcMotorBrake(MOTOR_CHB);
-    delay(1000);
+    delay(1000);*/
     //analogWrite(enAP, 0);
     //analogWrite(enBP, 0);test
     

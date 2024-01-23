@@ -50,14 +50,15 @@ ThreadList* threadlist_Play;
 
 void setup() {
     Serial.begin(115200);
-    //Wire.begin();
-    //Wire.setClock(4000);
+   //Wire.begin();
+   //Wire.setClock(4000);
    pcf8574.pinMode(P4, OUTPUT);
    pcf8574.pinMode(P5, OUTPUT);
    pcf8574.pinMode(P6, OUTPUT);
    pcf8574.pinMode(P7, OUTPUT);// POUR STEPPER avec L298N
    
-   pcf8574_2.pinMode(enA, OUTPUT);
+   //pcf8574_2.pinMode(enA, OUTPUT);
+   pcf8574_2.pinMode(enA,OUTPUT);
    pcf8574_2.pinMode(in1, OUTPUT);
    pcf8574_2.pinMode(in2, OUTPUT);
    pcf8574_2.pinMode(enB, OUTPUT);
@@ -65,8 +66,8 @@ void setup() {
    pcf8574_2.pinMode(in4, OUTPUT);// pour les deuxs motor DC Chariot
     
     
-    pcf8574.pinMode(P1,OUTPUT);//test
-    pcf8574.pinMode(P2,INPUT);//test
+    //pcf8574.pinMode(P1,OUTPUT);//test
+    //pcf8574.pinMode(P2,INPUT);//test
    
     Serial.println("SETUP: START");
    
@@ -107,9 +108,9 @@ void setup() {
     Serial.println("SETUP: LANCEMENT MECANISM->DATA_STATE_REFRESH() ET MECANISM->SETUP()"); // Obligatoire pour pouvoir utiliser un mécanisme (mettre en commentaire les mécanismes non brancher pour éviter tous problèmes possible)
 
     //camera_mecanism->Setup();
-    chariot_mecanism->Setup();
+    //chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
-    //pusher_mecanism->Setup();
+    pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
     //piston_mecanism->Setup();
 
@@ -122,7 +123,7 @@ void setup() {
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: BLUETOOTH");
 
-    BluetoothSetup();
+    //BluetoothSetup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: INITIALIZE MECANISM'S INITIAL STATE"); // Juste pour choisir l'état "d'origine" du mécanisme 
@@ -183,12 +184,13 @@ void loop() {
     Serial.println("LOOP: MECANISM LAUNCH");
     //threadlist_Draw->LaunchThread(chariot_mecanism);
 
-    chariot_mecanism->LaunchMecanism();
+    //chariot_mecanism->LaunchMecanism();
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
-    //pusher_mecanism->LaunchMecanism();
-    pcf8574.digitalWrite(P3,HIGH);//test
-    Serial.println(pcf8574.digitalRead(P2));// test
+    pusher_mecanism->LaunchMecanism();
+    
+    //pcf8574.digitalWrite(P3,HIGH);//test
+    //Serial.println(pcf8574.digitalRead(P2));// test
     }
 
     Serial.println("LOOP: END");
