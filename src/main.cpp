@@ -16,6 +16,11 @@ Basic_state_permutation* permutation_state = new Basic_state_permutation(nullptr
 State_distrib* pusher_state_placement_helping = new State_distrib(nullptr,nullptr); // PUSHER: FAIRE AVANCER LA CARTE SOUS LA CAMERA
 State_stocking* pusher_state_card_stocking = new State_stocking(nullptr,nullptr);// PUSHER: FAIRE AVANCER LA CARTE DANS LE STOCKAGE
 
+Draw_state_stockage* stockage_state_draw = new Draw_state_stockage(nullptr,nullptr); // PUSHER: FAIRE AVANCER LA CARTE SOUS LA CAMERA
+Play_state_stockage* stockage_state_play = new Play_state_stockage(nullptr,nullptr);// PUSHER: FAIRE AVANCER LA CARTE DANS LE STOCKAGE
+
+Basic_state_piston* piston_state = new Basic_state_piston(nullptr,nullptr);// PUSHER: FAIRE AVANCER LA CARTE DANS LE STOCKAGE
+
 //////////////////////////////
 // DECLARATION DES MECANISMES (MECANISM)
 //////////////////////////////
@@ -24,6 +29,8 @@ CameraMecanism* camera_mecanism = new CameraMecanism(nullptr, "Camera"); // Para
 Chariot* chariot_mecanism = new Chariot(nullptr, "Chariot");
 Permutation* permutation_mecanism = new Permutation(nullptr, "Permutation");
 Pusher* pusher_mecanism = new Pusher(nullptr, "Pusher");
+Stockage* stockage_mecanism = new Stockage(nullptr, "Stockage");
+Piston* piston_mecanism = new Piston(nullptr, "Piston");
 
 //////////////////////////////
 // DECLARATION DES TABLEAUX DES PROCHAIN MECANISMES (mettre nullptr ou enlever la ligne si aucun mécanisme ne suit)
@@ -38,7 +45,8 @@ Mecanism* camera_state_NEXTMEC[1] = {pusher_mecanism};
 // DECLARATION DES THREADS
 //////////////////////////////
 
-ThreadList* threadlist;
+ThreadList* threadlist_Draw;
+ThreadList* threadlist_Play;
 
 void setup() {
     Serial.begin(115200);
@@ -102,11 +110,14 @@ void setup() {
     chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
     //pusher_mecanism->Setup();
+    //stockage_mecanism->Setup();
+    //piston_mecanism->Setup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: THREAD SETUP"); // 1 Thread permet de lancer une séquence de mécanismes (on peut lancer un mécanisme sans passer par un thread)
 
-    threadlist = new ThreadList();
+    threadlist_Draw = new ThreadList();
+    threadlist_Play = new ThreadList();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: BLUETOOTH");
@@ -120,6 +131,7 @@ void setup() {
     chariot_mecanism->TransitionTo(chariot_state_push);
     permutation_mecanism->TransitionTo(permutation_state);
     pusher_mecanism->TransitionTo(pusher_state_placement_helping);
+    stockage_mecanism->TransitionTo(stockage_state_draw);
 
     Serial.println("SETUP: END");
 }
@@ -140,13 +152,28 @@ void loop() {
         int data_length = data.length();
         int place = 0 ;
         if(data[0] == 'p'){
+
             place = (data.substring(2,data_length-1)).toInt();
             Serial.print("LOOP: Bluetooth: Piocher: Place:");
             Serial.println(place);
+            stockage_state_draw->card_position = place;
+            stockage_mecanism->TransitionTo(stockage_state_draw);
+            stockage_mecanism->LaunchMecanism(); //Pour les tests
+            
+            SerialBT.print("f");
+
         }else if(data[0] == 'j'){
+
             place = (data.substring(2,data_length-1)).toInt();
             Serial.print("LOOP: Bluetooth: Jouer: Place:");
             Serial.println(place);
+            stockage_state_play->card_position = place;
+            stockage_mecanism->TransitionTo(stockage_state_play);
+            stockage_mecanism->LaunchMecanism(); //Pour les tests
+
+            SerialBT.print("f");
+            
+
         }else{
             Serial.println("LOOP: Bluetooth: Données reçues INCORRECTES");
         }
@@ -154,7 +181,7 @@ void loop() {
     }else{
 ////////////////////////////////////////////////////////////////////////
     Serial.println("LOOP: MECANISM LAUNCH");
-    //threadlist->LaunchThread(chariot_mecanism);
+    //threadlist_Draw->LaunchThread(chariot_mecanism);
 
     chariot_mecanism->LaunchMecanism();
     //permutation_mecanism->LaunchMecanism();
