@@ -110,7 +110,7 @@ void setup() {
     //camera_mecanism->Setup();
     //chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
-    pusher_mecanism->Setup();
+    //pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
     //piston_mecanism->Setup();
 
@@ -123,7 +123,7 @@ void setup() {
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: BLUETOOTH");
 
-    //BluetoothSetup();
+    BluetoothSetup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: INITIALIZE MECANISM'S INITIAL STATE"); // Juste pour choisir l'état "d'origine" du mécanisme 
@@ -187,10 +187,10 @@ void loop() {
     //chariot_mecanism->LaunchMecanism();
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
-    pusher_mecanism->LaunchMecanism();
-    
-    //pcf8574.digitalWrite(P3,HIGH);//test
+    //pusher_mecanism->LaunchMecanism();
+    //pcf8574.digitalWrite(P1,HIGH);//test
     //Serial.println(pcf8574.digitalRead(P2));// test
+    delay(1000);
     }
 
     Serial.println("LOOP: END");
