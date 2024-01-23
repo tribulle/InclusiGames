@@ -44,10 +44,22 @@ void setup() {
     Serial.begin(115200);
     //Wire.begin();
     //Wire.setClock(4000);
+   pcf8574.pinMode(P4, OUTPUT);
+   pcf8574.pinMode(P5, OUTPUT);
+   pcf8574.pinMode(P6, OUTPUT);
+   pcf8574.pinMode(P7, OUTPUT);// POUR STEPPER avec L298N
    
-
+   pcf8574_2.pinMode(enA, OUTPUT);
+   pcf8574_2.pinMode(in1, OUTPUT);
+   pcf8574_2.pinMode(in2, OUTPUT);
+   pcf8574_2.pinMode(enB, OUTPUT);
+   pcf8574_2.pinMode(in3, OUTPUT);
+   pcf8574_2.pinMode(in4, OUTPUT);// pour les deuxs motor DC Chariot
+    
+    
     pcf8574.pinMode(P1,OUTPUT);//test
     pcf8574.pinMode(P2,INPUT);//test
+   
     Serial.println("SETUP: START");
    
     Serial.print("Init pcf8574...");
@@ -62,7 +74,8 @@ void setup() {
 		Serial.println("OK");
 	}else{
 		Serial.println("KO");
-	}
+	}// initialisation
+    
     
 
 ////////////////////////////////////////////////////////////////////////

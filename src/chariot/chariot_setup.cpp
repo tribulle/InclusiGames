@@ -10,14 +10,13 @@
 Servo servo;
 
 void Chariot::Setup(){
-    pcf8574_2.pinMode(enA, OUTPUT);
-    pcf8574_2.pinMode(in1, OUTPUT);
-    pcf8574_2.pinMode(in2, OUTPUT);
-    pcf8574_2.pinMode(enB, OUTPUT);
-    pcf8574_2.pinMode(in3, OUTPUT);
-    pcf8574_2.pinMode(in4, OUTPUT);
-    pcf8574_2.digitalWrite(in1, LOW);
-    pcf8574_2.digitalWrite(in2, HIGH);
+    //pcf8574_2.pinMode(enA, OUTPUT);
+    //pcf8574_2.pinMode(in1, OUTPUT);
+    //pcf8574_2.pinMode(in2, OUTPUT);
+    //pcf8574_2.pinMode(enB, OUTPUT);
+    //pcf8574_2.pinMode(in3, OUTPUT);
+    //pcf8574_2.pinMode(in4, OUTPUT);
+    
   
 
   
