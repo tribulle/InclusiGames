@@ -9,10 +9,11 @@
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
 
-MotorDriver* motorDriver;
+MotorDriver motor;
 
 bool value_sensor;
 void Pusher::Setup(){
+     motor.init();
     // LASER RECEPTEUR 1
     /*
     pcf8574.pinMode(LASER, OUTPUT);
@@ -25,17 +26,18 @@ void Pusher::Setup(){
     pcf8574.digitalWrite(LASER2,HIGH);
     */
     
-    pinMode(enAP, OUTPUT);
-    pinMode(enBP, OUTPUT);
-    pinMode(In1, OUTPUT);
-    pinMode(In2, OUTPUT);
-    pinMode(In3, OUTPUT);
-    pinMode(In4, OUTPUT);
+    // Test fait avec L298N
+    //pinMode(enAP, OUTPUT);
+    //pinMode(enBP, OUTPUT);
+    //pinMode(In1, OUTPUT);
+    //pinMode(In2, OUTPUT);
+    //pinMode(In3, OUTPUT);
+    //pinMode(In4, OUTPUT);
 
     //Wire.begin();
     //motorDriver->init();
-    //pcf8574_2.pinMode(vitesseA,OUTPUT);
+    //pcf8574_2.pinMode(vitesseA,OUTPUT); 
     //pcf8574_2.pinMode(vitesseB,OUTPUT);
     //pcf8574_2.pinMode(directionA,OUTPUT);
-    //pcf8574_2.pinMode(directionB,OUTPUT);
+    //pcf8574_2.pinMode(directionB,OUTPUT);ça sera à quoi???
 }

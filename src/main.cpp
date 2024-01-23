@@ -76,7 +76,7 @@ void setup() {
 		Serial.println("KO");
 	}// initialisation
     
-    
+
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: CHANGE NEXT_MECANISM"); // CHANGE NEXT_MECANISM (mettre nullptr ou enlever la ligne si aucun mécanisme ne suit)

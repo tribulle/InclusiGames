@@ -3,7 +3,6 @@
 
 #include "base_class/state.h"
 #include "pusher_setup.h"
-
 // Variations State_chariot: All the possible state for the Chariot
 class State_distrib: public State{
     public:

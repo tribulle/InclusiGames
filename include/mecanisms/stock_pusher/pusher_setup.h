@@ -18,16 +18,18 @@ const int vitesseA = P0;
 const int vitesseB = P2;
 const int directionA = P1;
 const int directionB = P3;
+// set speed to 120 revolutions per minute
+const uint16_t rpm = 120;
 
-const int enAP = 12;
-const int enBP = 14;
+//const int enAP = 12; test
+//const int enBP = 14;
 
-const int In1 = 27;
-const int In2 = 33;
-const int In3 = 15;
-const int In4 = 32;
+//const int In1 = 27;
+//const int In2 = 33;
+//const int In3 = 15;
+//const int In4 = 32; test
 
 extern bool value_sensor;
 
-extern MotorDriver* motorDriver;
+extern MotorDriver motor;
 #endif
