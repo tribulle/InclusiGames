@@ -46,6 +46,7 @@ void State_distrib::MecanismF(){
     // Stepper run 10 rounds at MICRO_STEPPING mode, this takes about 5 seconds
     // At MICRO_STEPPING mode, one step = 1.8 degree, so it takes 200 step to go a round
     // At this mode, stepper runs very smoothly
+    Serial.print("OSKOURRR");
     motor.stepperRun(MICRO_STEPPING, -200*10, rpm);
     delay(6000);
        

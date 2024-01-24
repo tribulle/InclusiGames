@@ -8,11 +8,11 @@
 void Draw_state_stockage::MecanismF(){
   int pos = this->card_position;
   Serial.print("DRAW: Card pos:");
-  Serial.print(pos);
+  Serial.println(pos);
 }
 
 void Play_state_stockage::MecanismF(){
   int pos = this->card_position;
   Serial.print("PLAY: Card pos:");
-  Serial.print(pos);
+  Serial.println(pos);
 }

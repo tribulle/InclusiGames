@@ -110,7 +110,7 @@ void setup() {
     //camera_mecanism->Setup();
     //chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
-    //pusher_mecanism->Setup();
+    pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
     //piston_mecanism->Setup();
 
@@ -142,6 +142,7 @@ void loop() {
     Serial.println("LOOP: START");
 
     if(THREAD_BLUETOOTH_NEEDED){
+        Serial.println("LOOP: Bluetooth: Waiting");
         while(!SerialBT.connected()){}
         Serial.println("LOOP: Bluetooth: Connected");
         while(!SerialBT.available()){}
@@ -154,7 +155,8 @@ void loop() {
         int place = 0 ;
         if(data[0] == 'p'){
 
-            place = (data.substring(2,data_length-1)).toInt();
+            Serial.println(data[2]);
+            place = data[2]-48;
             Serial.print("LOOP: Bluetooth: Piocher: Place:");
             Serial.println(place);
             stockage_state_draw->card_position = place;
@@ -165,7 +167,8 @@ void loop() {
 
         }else if(data[0] == 'j'){
 
-            place = (data.substring(2,data_length-1)).toInt();
+            Serial.println(data[2]);
+            place = data[2]-48;
             Serial.print("LOOP: Bluetooth: Jouer: Place:");
             Serial.println(place);
             stockage_state_play->card_position = place;
@@ -187,7 +190,7 @@ void loop() {
     //chariot_mecanism->LaunchMecanism();
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
-    //pusher_mecanism->LaunchMecanism();
+    pusher_mecanism->LaunchMecanism();
     //pcf8574.digitalWrite(P1,HIGH);//test
     //Serial.println(pcf8574.digitalRead(P2));// test
     delay(1000);
