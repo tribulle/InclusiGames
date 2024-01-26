@@ -12,6 +12,7 @@ class State_distrib: public State{
 
 class State_stocking: public State{
     public:
+        int card_position = 0;
         void MecanismF() override;
         State_stocking(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };

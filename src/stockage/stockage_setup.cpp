@@ -8,5 +8,6 @@
 //////
 
 void Stockage::Setup(){
-
+  //Setup de cette mecanismes est deja fait dans pusher state( meme motor driver)
+  
 }

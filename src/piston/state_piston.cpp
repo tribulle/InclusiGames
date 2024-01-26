@@ -6,5 +6,15 @@
 // Variations State_chariot: All the possible state for the Chariot
 
 void Basic_state_piston::MecanismF(){
+    
+    pcf8574_2.digitalWrite(in4, LOW);
+    pcf8574_2.digitalWrite(in3, HIGH);//demarrer l'actionnneur lineaire
+    delay(temps_actionneur); 
 
+    pcf8574_2.digitalWrite(in4, HIGH);
+    pcf8574_2.digitalWrite(in3, LOW);//initialisation
+    delay(temps_actionneur);// 
+
+    pcf8574_2.digitalWrite(in4, LOW);
+    pcf8574_2.digitalWrite(in3, LOW);//arrete l'actionnneur
 }

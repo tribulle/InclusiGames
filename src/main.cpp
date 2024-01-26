@@ -57,11 +57,12 @@ void setup() {
    pcf8574.pinMode(P6, OUTPUT);
    pcf8574.pinMode(P7, OUTPUT);// POUR STEPPER avec L298N
    
-   //pcf8574_2.pinMode(enA, OUTPUT);
-   pcf8574_2.pinMode(enA,OUTPUT);
+   
+   //pcf8574_2.pinMode(enA,OUTPUT);
+   //pcf8574_2.pinMode(enB, OUTPUT); pas besoin psq extendet est digital pas analog io
+
    pcf8574_2.pinMode(in1, OUTPUT);
    pcf8574_2.pinMode(in2, OUTPUT);
-   pcf8574_2.pinMode(enB, OUTPUT);
    pcf8574_2.pinMode(in3, OUTPUT);
    pcf8574_2.pinMode(in4, OUTPUT);// pour les deuxs motor DC Chariot
     
@@ -192,8 +193,8 @@ void loop() {
     //camera_mecanism->LaunchMecanism();
     pusher_mecanism->LaunchMecanism();
     //pcf8574.digitalWrite(P1,HIGH);//test
-    //Serial.println(pcf8574.digitalRead(P2));// test
     delay(1000);
+
     }
 
     Serial.println("LOOP: END");

@@ -15,7 +15,7 @@ void Chariot::Setup(){
     //pcf8574_2.pinMode(in2, OUTPUT);
     //pcf8574_2.pinMode(enB, OUTPUT);
     //pcf8574_2.pinMode(in3, OUTPUT);
-    //pcf8574_2.pinMode(in4, OUTPUT);
+    //pcf8574_2.pinMode(in4, OUTPUT);// fait dans le main.cpp
     
   
 

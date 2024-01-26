@@ -41,5 +41,5 @@ void Pusher::Setup(){
     //pcf8574_2.pinMode(vitesseA,OUTPUT); 
     //pcf8574_2.pinMode(vitesseB,OUTPUT);
     //pcf8574_2.pinMode(directionA,OUTPUT);
-    //pcf8574_2.pinMode(directionB,OUTPUT);ça sera à quoi???
+    //pcf8574_2.pinMode(directionB,OUTPUT);cette partie peut supprimer
 }

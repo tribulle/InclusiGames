@@ -13,8 +13,8 @@ const int val = 90;
 const int enA = P5;
 const int in1 = P0;
 const int in2 = P1;
-const int in3= P2;
-const int in4=P3;
+//const int in3= P2;
+//const int in4=P3;
 const int enB=P6;
 
 // ICI Le port de ena,in1,in2 sont des port d'extenteur2 et se vois 
