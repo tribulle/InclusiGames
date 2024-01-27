@@ -8,6 +8,7 @@
 class Draw_state_stockage: public State{
     public:
         int card_position = 0;
+        float currentPos = 0;
         void MecanismF() override;
         Draw_state_stockage(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };
@@ -15,6 +16,7 @@ class Draw_state_stockage: public State{
 class Play_state_stockage: public State{
     public:
         int card_position = 0;
+        float currentPos = 0;
         void MecanismF() override;
         Play_state_stockage(Mecanism** next_mecanism, State* next_state) : State(next_mecanism, next_state) {}
 };

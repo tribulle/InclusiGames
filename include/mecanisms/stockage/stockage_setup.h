@@ -6,4 +6,8 @@
 //////////////////////////////
 #include "stockage.h"
 
+    const float Step_calibrer_stockage = 1;
+    const float Step_draw = 1;
+    const float Step_play = 1;
+    const float Step_between_pos = 1;
 #endif

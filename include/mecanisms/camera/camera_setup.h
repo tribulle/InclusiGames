@@ -20,22 +20,22 @@
 
 //extern BluetoothSerial SerialBT;
 
-const int SIOD = 23; //SDA
+const int SIOD = 21; //SDA
 const int SIOC = 22; //SCL
 
-const int VSYNC = 25;
-const int HREF = 26;
+const int VSYNC = 11;
+const int HREF = 10;
 
-const int XCLK = 32;
-const int PCLK = 33;
-const int D0 = 27;
-const int D1 = 17;
-const int D2 = 16;
-const int D3 = 15;
-const int D4 = 14;
-const int D5 = 13;
-const int D6 = 12;
-const int D7 = 4;
+const int XCLK = 15;
+const int PCLK = 25;
+const int D0 = 26;
+const int D1 = 12;
+const int D2 = 13;
+const int D3 = 33;
+const int D4 = 32;
+const int D5 = 14;
+const int D6 = 27;
+const int D7 = 2;
 
 //char* const ssid     = "Esp_32_Test";
 //char* const password = "12345678";

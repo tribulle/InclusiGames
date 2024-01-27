@@ -13,32 +13,17 @@ void Draw_state_stockage::MecanismF(){
   int pos = this->card_position;// pos est un valeur qu'on recoit de Bluetooth
   Serial.print("DRAW: Card pos:");
   Serial.println(pos);
+
   // Stepper run 10 rounds at MICRO_STEPPING mode, this takes about 5 seconds
   // At MICRO_STEPPING mode, one step = 1.8 degree, so it takes 200 step to go a round
   // At this mode, stepper runs very smoothly 
-  Serial.print("stepper de stockge on");
-  motor.stepperRun(MICRO_STEPPING, -200*10, rpm);//rpm est la vitesse de motor stepper 
-  delay(6000); 
-  
-  switch (pos)
-  {
-    case 0:
-   Serial.println(" no carte vont enregistrer");  
-     break;
-  case 1:
-        // Stepper run 10 rounds at MICRO_STEPPING mode, this takes about 5 seconds
-        // At MICRO_STEPPING mode, one step = 1.8 degree, so it takes 200 step to go a round
-        // At this mode, stepper runs very smoothly 
-        Serial.print("stepper de stockge  postion 0");
-        motor.stepperRun(MICRO_STEPPING, -200*10, rpm);//rpm est la vitesse de motor stepper 
-        delay(6000); 
-     break;
-  
-  default:
-        Serial.print("no carte à stocker");
-    break;
-  }
+  Serial.print("stepper de stockge reset");
+  motor.stepperRun(MICRO_STEPPING, this->currentPos + 5, rpm);//rpm est la vitesse de motor stepper 
+  delay(200); 
 
+  Serial.print("stepper de stockge move to card_pose");
+  motor.stepperRun(MICRO_STEPPING, - (pos*Step_between_pos+Step_draw)*Step_calibrer_stockage, rpm);//rpm est la vitesse de motor stepper 
+  delay(200); 
   
 }
 
@@ -46,4 +31,14 @@ void Play_state_stockage::MecanismF(){
   int pos = this->card_position;
   Serial.print("PLAY: Card pos:");
   Serial.println(pos);
+  // Stepper run 10 rounds at MICRO_STEPPING mode, this takes about 5 seconds
+  // At MICRO_STEPPING mode, one step = 1.8 degree, so it takes 200 step to go a round
+  // At this mode, stepper runs very smoothly 
+  Serial.print("stepper de stockge reset");
+  motor.stepperRun(MICRO_STEPPING, this->currentPos + 5, rpm);//rpm est la vitesse de motor stepper 
+  delay(200); 
+
+  Serial.print("stepper de stockge move to card_pose");
+  motor.stepperRun(MICRO_STEPPING, - (pos*Step_between_pos+Step_play)*Step_calibrer_stockage, rpm);//rpm est la vitesse de motor stepper 
+  delay(200); 
 }

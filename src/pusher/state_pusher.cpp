@@ -8,8 +8,7 @@
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
 void State_distrib::MecanismF(){
-    /*
-    pcf8574_2.digitalWrite(vitesseA,HIGH); // Allume le moteur
+   /*pcf8574_2.digitalWrite(vitesseA,HIGH); // Allume le moteur
     pcf8574_2.digitalWrite(vitesseB,HIGH); // Allume le moteur
     pcf8574_2.digitalWrite(directionA,HIGH); // Fait tourner le moteur dans une direction
     pcf8574_2.digitalWrite(directionB,LOW); // Fait tourner le moteur dans une direction

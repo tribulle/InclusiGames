@@ -38,7 +38,7 @@ Piston* piston_mecanism = new Piston(nullptr, "Piston");
 
 Mecanism* chariot_state_push_NEXTMEC[1] = {pusher_mecanism}; // 1 tableau par état (state)
 Mecanism* pusher_state_placement_helping_NEXTMEC[2] = {chariot_mecanism, permutation_mecanism};
-Mecanism* permutation_state_NEXTMEC[1] = {camera_mecanism};
+Mecanism* permutation_state_NEXTMEC[1] = {pusher_mecanism};
 Mecanism* camera_state_NEXTMEC[1] = {pusher_mecanism};
 
 //////////////////////////////
@@ -111,7 +111,7 @@ void setup() {
     //camera_mecanism->Setup();
     //chariot_mecanism->Setup();
     //permutation_mecanism->Setup();
-    pusher_mecanism->Setup();
+    //pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
     //piston_mecanism->Setup();
 
@@ -162,9 +162,15 @@ void loop() {
             Serial.println(place);
             stockage_state_draw->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_draw);
+            Serial.print("Camera??");
             stockage_mecanism->LaunchMecanism(); //Pour les tests
-            
-            SerialBT.print("f");
+            camera_mecanism->LaunchMecanism();
+
+            stockage_state_draw->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
+            stockage_state_play->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
+
+            Serial.print("f");
+            //SerialBT.print("f");
 
         }else if(data[0] == 'j'){
 
@@ -176,7 +182,11 @@ void loop() {
             stockage_mecanism->TransitionTo(stockage_state_play);
             stockage_mecanism->LaunchMecanism(); //Pour les tests
 
-            SerialBT.print("f");
+            stockage_state_draw->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;
+            stockage_state_play->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;
+
+            Serial.print("f");
+            //SerialBT.print("f");
             
 
         }else{
@@ -191,7 +201,7 @@ void loop() {
     //chariot_mecanism->LaunchMecanism();
     //permutation_mecanism->LaunchMecanism();
     //camera_mecanism->LaunchMecanism();
-    pusher_mecanism->LaunchMecanism();
+    //pusher_mecanism->LaunchMecanism();
     //pcf8574.digitalWrite(P1,HIGH);//test
     delay(1000);
 
