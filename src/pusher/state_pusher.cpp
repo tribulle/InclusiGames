@@ -66,23 +66,4 @@ void State_stocking::MecanismF(){
     motor.dcMotorBrake(MOTOR_CHA);
     motor.dcMotorBrake(MOTOR_CHB);
     delay(1000);
-    
-  switch (pos)/// pour initialiser la postion de stepper qui est pour changer la position stock(y a 8 postion possible)
-  {
-  case 0:
-   Serial.println(" pas besoin de initialiser");  
-   break;
-  case 1:
-        // Stepper run 10 rounds at MICRO_STEPPING mode, this takes about 5 seconds
-        // At MICRO_STEPPING mode, one step = 1.8 degree, so it takes 200 step to go a round
-        // At this mode, stepper runs very smoothly 
-        Serial.print("stepper de stockge  postion 0");
-        motor.stepperRun(MICRO_STEPPING, 200*10, rpm);//rpm est la vitesse de motor stepper 
-        delay(6000); 
-   break;
-  
-  default:
-  break;
-    
-    }
 }
