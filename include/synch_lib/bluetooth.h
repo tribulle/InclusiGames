@@ -9,7 +9,7 @@
 extern BluetoothSerial SerialBT;
 
 #define SERVICE_UUID "00001101-0000-1000-8000-00805F9B34FB"
-const bool THREAD_BLUETOOTH_NEEDED = true;
+const bool THREAD_BLUETOOTH_NEEDED = false;
 
 void BluetoothSetup();
 

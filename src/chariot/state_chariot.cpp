@@ -13,22 +13,26 @@ void Chariot_state_push::MecanismF(){
     
     pcf8574_2.digitalWrite(in1, LOW);
     pcf8574_2.digitalWrite(in2, HIGH);//demarrer un motor
-
-    for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
+    
+    delay(1000);
+    pcf8574_2.digitalWrite(in1, LOW);
+    pcf8574_2.digitalWrite(in2, LOW);
+    /*for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
         servo.write(posDegrees);
         //Serial.println(posDegrees);
         delay(4);
     }
-    delay(6000);
+    delay(6000);*/
 }
 
 void Chariot_state_reset::MecanismF(){
 
-    for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
+   /* for(int posDegrees = 0; posDegrees <= 180; posDegrees++) {
         servo.write(posDegrees);
         delay(4);
-    }
+    }*/
         pcf8574_2.digitalWrite(in1, LOW);
         pcf8574_2.digitalWrite(in2, LOW);
         //Serial.println(posDegrees);
+      
 }

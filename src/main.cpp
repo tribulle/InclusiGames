@@ -51,7 +51,11 @@ ThreadList* threadlist_Play;
 void setup() {
     Serial.begin(115200);
    //Wire.begin();
-   //Wire.setClock(4000);
+   //Wire.setClock(4000)
+   
+   pinMode(13,OUTPUT);
+   analogWrite(13,50);// test pour védio
+
    pcf8574.pinMode(P4, OUTPUT);
    pcf8574.pinMode(P5, OUTPUT);
    pcf8574.pinMode(P6, OUTPUT);
@@ -65,6 +69,9 @@ void setup() {
    pcf8574_2.pinMode(in2, OUTPUT);
    pcf8574_2.pinMode(in3, OUTPUT);
    pcf8574_2.pinMode(in4, OUTPUT);// pour les deuxs motor DC Chariot
+
+   pcf8574_2.digitalWrite(in4, LOW);
+   pcf8574_2.digitalWrite(in3, LOW);
     
     
     //pcf8574.pinMode(P1,OUTPUT);//test
@@ -95,6 +102,7 @@ void setup() {
     pusher_state_placement_helping->Change_next_mecanism_to(pusher_state_placement_helping_NEXTMEC, 2);
     permutation_state->Change_next_mecanism_to(permutation_state_NEXTMEC, 1);
     camera_state->Change_next_mecanism_to(camera_state_NEXTMEC, 1);
+    
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: CHANGE NEXT_STATE"); // CHANGE NEXT_STATE (mettre nullptr ou enlever la ligne si l'état ne change pas)
@@ -109,11 +117,11 @@ void setup() {
     Serial.println("SETUP: LANCEMENT MECANISM->DATA_STATE_REFRESH() ET MECANISM->SETUP()"); // Obligatoire pour pouvoir utiliser un mécanisme (mettre en commentaire les mécanismes non brancher pour éviter tous problèmes possible)
 
     //camera_mecanism->Setup();
-    //chariot_mecanism->Setup();
-    //permutation_mecanism->Setup();
-    //pusher_mecanism->Setup();
+    chariot_mecanism->Setup();
+    permutation_mecanism->Setup();
+    pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
-    //piston_mecanism->Setup();
+    piston_mecanism->Setup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: THREAD SETUP"); // 1 Thread permet de lancer une séquence de mécanismes (on peut lancer un mécanisme sans passer par un thread)
@@ -134,6 +142,7 @@ void setup() {
     permutation_mecanism->TransitionTo(permutation_state);
     pusher_mecanism->TransitionTo(pusher_state_placement_helping);
     stockage_mecanism->TransitionTo(stockage_state_draw);
+    piston_mecanism->TransitionTo(piston_state);
 
     Serial.println("SETUP: END");
 }
@@ -198,12 +207,18 @@ void loop() {
     Serial.println("LOOP: MECANISM LAUNCH");
     //threadlist_Draw->LaunchThread(chariot_mecanism);
 
-    //chariot_mecanism->LaunchMecanism();
-    //permutation_mecanism->LaunchMecanism();
+    analogWrite(13,50);//test pour le védio
+
+    chariot_mecanism->LaunchMecanism();
+    delay(2000);
+    piston_mecanism->LaunchMecanism();
+    delay(2000);
+    permutation_mecanism->LaunchMecanism();
+    delay(2000);
     //camera_mecanism->LaunchMecanism();
-    //pusher_mecanism->LaunchMecanism();
+    pusher_mecanism->LaunchMecanism();
     //pcf8574.digitalWrite(P1,HIGH);//test
-    delay(1000);
+    delay(2000);
 
     }
 

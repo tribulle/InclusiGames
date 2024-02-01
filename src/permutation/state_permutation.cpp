@@ -7,7 +7,7 @@
 
 void Basic_state_permutation::MecanismF(){
   Serial.println("Rotating Clockwise...");
-  myStepper->step(890);
+  myStepper->step(890);// 890 UNE TOUR
   delay(500);
   Serial.println("Rotating Anti-Clockwise...");
   myStepper->step(-890);
