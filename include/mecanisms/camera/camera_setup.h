@@ -23,8 +23,8 @@
 const int SIOD = 21; //SDA
 const int SIOC = 22; //SCL
 
-const int VSYNC = 11;
-const int HREF = 10;
+const int VSYNC = 16;
+const int HREF = 4;
 
 const int XCLK = 15;
 const int PCLK = 25;

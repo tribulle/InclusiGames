@@ -116,10 +116,17 @@ void setup() {
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: LANCEMENT MECANISM->DATA_STATE_REFRESH() ET MECANISM->SETUP()"); // Obligatoire pour pouvoir utiliser un mécanisme (mettre en commentaire les mécanismes non brancher pour éviter tous problèmes possible)
 
+<<<<<<< Updated upstream
     //camera_mecanism->Setup();
     chariot_mecanism->Setup();
     permutation_mecanism->Setup();
     pusher_mecanism->Setup();
+=======
+    camera_mecanism->Setup();
+    //chariot_mecanism->Setup();
+    //permutation_mecanism->Setup();
+    //pusher_mecanism->Setup();
+>>>>>>> Stashed changes
     //stockage_mecanism->Setup();
     piston_mecanism->Setup();
 
@@ -207,6 +214,7 @@ void loop() {
     Serial.println("LOOP: MECANISM LAUNCH");
     //threadlist_Draw->LaunchThread(chariot_mecanism);
 
+<<<<<<< Updated upstream
     analogWrite(13,50);//test pour le védio
 
     chariot_mecanism->LaunchMecanism();
@@ -217,6 +225,12 @@ void loop() {
     delay(2000);
     //camera_mecanism->LaunchMecanism();
     pusher_mecanism->LaunchMecanism();
+=======
+    //chariot_mecanism->LaunchMecanism();
+    //permutation_mecanism->LaunchMecanism();
+    camera_mecanism->LaunchMecanism();
+    //pusher_mecanism->LaunchMecanism();
+>>>>>>> Stashed changes
     //pcf8574.digitalWrite(P1,HIGH);//test
     delay(2000);
 
