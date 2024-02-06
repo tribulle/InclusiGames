@@ -18,9 +18,11 @@ void Basic_state_camera::MecanismF(){
       Serial.println("CAMERA: _start");
       String sendData = "";
       delay(10);
+      Serial.println("CAMERA: 1t");
       timecnt = micros();
-
+      Serial.println("CAMERA: 2t");
       camera->oneFrame();  
+      Serial.println("CAMERA: 3t");
       for(int x = 0; x < camera->xres; x++){
         for(int y = 0; y < camera->yres; y++)
         {
@@ -32,21 +34,28 @@ void Basic_state_camera::MecanismF(){
           rgb[2]=cm-((cm>>5)<<5);
           for(i1=0;i1<3;i1++){
             arrcolor[i1][x][y]=rgb[i1];
-            //Serial.print(rgb[i1]);
+            SerialBT.print(rgb[i1]);
             sendData += rgb[i1];
             if(i1<2){
             sendData += ",";// pour differencier different couleur
+            SerialBT.print(",");
             //Serial.println(rgb[i1]);
           }
           }
-          //Serial.print(";");
+          SerialBT.print(";");
           sendData += ";";// pour differencier different pixel
         }
-        //Serial.println("");
+        //SerialBT.print("");
         sendData += "";
       }
-      sendData += "_end";
+      //sendData += "_end";
+      size_t freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
+      Serial.println("Free Heap: " + String(freeHeap));
       Serial.println(sendData);
+      //SerialBT.print(sendData);
+      freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
+      Serial.println("Free Heap: " + String(freeHeap));
+      
       //timecnt = micros()-timecnt;  c'est pour voir le temps de transmission
       //Serial.printf("timecnt=%d\n",timecnt);
       delay(60);

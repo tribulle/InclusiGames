@@ -20,7 +20,7 @@ void Chariot::Setup(){
   
 
   
-    servo.setPeriodHertz(50);
-    servo.attach(21, 500, 2400);
+    //servo.setPeriodHertz(50);
+    //servo.attach(21, 500, 2400);
     Serial.println("****************************************SETUP-ED*******************************");
 }
