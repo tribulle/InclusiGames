@@ -34,7 +34,7 @@ class Mecanism: public Context{
             }
             else Serial.println("MEC: FATAL ERROR this->state_ == nullptr ");
             
-            delay(1000);
+            //delay(1000);
         }
 
         virtual void Setup() = 0;

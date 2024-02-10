@@ -10,7 +10,7 @@
 const int potpin = A0;
 const int val = 90;
 
-const int enA = P5;
+const int enA = 4;
 const int in1 = P0;
 const int in2 = P1;
 

@@ -24,9 +24,9 @@ void State_distrib::MecanismF(){
     
     //////////DEMARRER 2 motors
     Serial.println("run at speed=-255");
-    motor.dcMotorRun(MOTOR_CHA, -255);
-    motor.dcMotorRun(MOTOR_CHB, -255);
-    delay(3000);// le temps doit etre fixe en faisant des essaies
+    motor.dcMotorRun(MOTOR_CHA, -50);
+    motor.dcMotorRun(MOTOR_CHB, -50);
+    delay(1000);// le temps doit etre fixe en faisant des essaies
     
     //////////////STOP 2 motors
     Serial.println("stop");

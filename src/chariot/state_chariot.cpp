@@ -14,7 +14,7 @@ void Chariot_state_push::MecanismF(){
     pcf8574_2.digitalWrite(in1, LOW);
     pcf8574_2.digitalWrite(in2, HIGH);//demarrer un motor
     
-    delay(1000);
+    delay(4000);
     pcf8574_2.digitalWrite(in1, LOW);
     pcf8574_2.digitalWrite(in2, LOW);
     /*for(int posDegrees = 180; posDegrees >= 0; posDegrees--) {
