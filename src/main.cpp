@@ -60,8 +60,14 @@ void setup() {
    pcf8574.pinMode(P5, OUTPUT);
    pcf8574.pinMode(P6, OUTPUT);
    pcf8574.pinMode(P7, OUTPUT);// POUR STEPPER avec L298N
+
+   pcf8574.pinMode(P1, OUTPUT);
+   pcf8574.pinMode(P2, OUTPUT);
+   pcf8574.pinMode(P3, OUTPUT);// c'est pour led
    
-   
+   pcf8574.digitalWrite(P1, HIGH);
+   pcf8574.digitalWrite(P2, HIGH);
+    pcf8574.digitalWrite(P3, HIGH);
    //pcf8574_2.pinMode(enA,OUTPUT);
    //pcf8574_2.pinMode(enB, OUTPUT); pas besoin psq extendet est digital pas analog io
 

@@ -6,8 +6,10 @@
 //////////////////////////////
 // NE PAS METTRE DE SERIAL.BEGIN()
 //////
-
+Stepper* myStepper_2;
 void Stockage::Setup(){
-  //Setup de cette mecanismes est deja fait dans pusher state( meme motor driver)
-  
+//Setup de cette mecanismes est deja fait dans pusher state( meme motor driver)
+myStepper_2 = new Stepper(stepsPerRevolution_2, P4,P5,P6,P7);
+myStepper_2->setSpeed(60);
+
 }

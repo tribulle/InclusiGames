@@ -9,17 +9,7 @@
 #include "Grove_Motor_Driver_TB6612FNG.h"
 
 const int LASER = P0;
-const int SENSOR = P2;
-
-const int LASER2 = P1;
-const int SENSOR2 = P3;
-
-const int vitesseA = P0;
-const int vitesseB = P2;
-const int directionA = P1;
-const int directionB = P3;
-// set speed to 120 revolutions per minute
-const uint16_t rpm = 120;
+const int SENSOR = 34;
 
 //const int enAP = 12; test
 //const int enBP = 14;

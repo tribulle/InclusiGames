@@ -8,19 +8,6 @@
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
 void State_distrib::MecanismF(){
-   /*pcf8574_2.digitalWrite(vitesseA,HIGH); // Allume le moteur
-    pcf8574_2.digitalWrite(vitesseB,HIGH); // Allume le moteur
-    pcf8574_2.digitalWrite(directionA,HIGH); // Fait tourner le moteur dans une direction
-    pcf8574_2.digitalWrite(directionB,LOW); // Fait tourner le moteur dans une direction
-    while (pcf8574.digitalRead(SENSOR)==1)
-    {
-        Serial.println("Pas assez loin");
-        delay(10);
-    }
-    delay(100);
-    pcf8574_2.digitalWrite(vitesseA,LOW); // Eteint le moteur
-    pcf8574_2.digitalWrite(vitesseB,LOW); // Eteint le moteur( test with l298n)*/
-    // drive 2 DC motors at speed=200, anticlockwise
     
     //////////DEMARRER 2 motors
     Serial.println("run at speed=-255");
