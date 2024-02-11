@@ -116,12 +116,12 @@ void setup() {
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: LANCEMENT MECANISM->DATA_STATE_REFRESH() ET MECANISM->SETUP()"); // Obligatoire pour pouvoir utiliser un mécanisme (mettre en commentaire les mécanismes non brancher pour éviter tous problèmes possible)
 
-    //camera_mecanism->Setup();
-    chariot_mecanism->Setup();
-    permutation_mecanism->Setup();
-    pusher_mecanism->Setup();
+    camera_mecanism->Setup();
+    //chariot_mecanism->Setup();
+    //permutation_mecanism->Setup();
+    //pusher_mecanism->Setup();
     //stockage_mecanism->Setup();
-    piston_mecanism->Setup();
+    //piston_mecanism->Setup();
 
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: THREAD SETUP"); // 1 Thread permet de lancer une séquence de mécanismes (on peut lancer un mécanisme sans passer par un thread)
@@ -172,10 +172,10 @@ void loop() {
             stockage_state_draw->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_draw);
             //stockage_mecanism->LaunchMecanism(); //Pour les tests
-            //camera_mecanism->LaunchMecanism();
-            chariot_mecanism->LaunchMecanism();
-            pusher_mecanism->LaunchMecanism();
-            permutation_mecanism->LaunchMecanism();
+            camera_mecanism->LaunchMecanism();
+            //chariot_mecanism->LaunchMecanism();
+            //pusher_mecanism->LaunchMecanism();
+            //permutation_mecanism->LaunchMecanism();
 
             stockage_state_draw->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
             stockage_state_play->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
@@ -192,7 +192,7 @@ void loop() {
             stockage_state_play->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_play);
             //stockage_mecanism->LaunchMecanism(); //Pour les tests
-            piston_mecanism->LaunchMecanism();
+            //piston_mecanism->LaunchMecanism();
 
             stockage_state_draw->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;
             stockage_state_play->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;

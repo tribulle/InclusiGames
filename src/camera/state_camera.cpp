@@ -50,12 +50,12 @@ void Basic_state_camera::MecanismF(){
       }
       //Serial.println("CAMERA: 4t");
       //sendData += "_end";
-      /*size_t freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
-      Serial.println("Free Heap: " + String(freeHeap));
-      Serial.println(sendData);
+      //size_t freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
+      //Serial.println("Free Heap: " + String(freeHeap));
+      //Serial.println(sendData);
       //SerialBT.print(sendData);
-      freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
-      Serial.println("Free Heap: " + String(freeHeap));*/
+      //freeHeap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
+      //Serial.println("Free Heap: " + String(freeHeap));
       
       //timecnt = micros()-timecnt;  c'est pour voir le temps de transmission
       //Serial.printf("timecnt=%d\n",timecnt);
