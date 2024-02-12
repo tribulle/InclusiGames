@@ -12,6 +12,7 @@ This code was created as part of a school project at Centrale Lille.
 - [@tribulle](https://www.github.com/tribulle)
 - [@liuh335](https://www.github.com/liuh335)
 
+# The code structure follows the State Patern paradigm
 
 ## Usage/Examples
 ##### Create a new mechanism with its states
