@@ -50,11 +50,9 @@ ThreadList* threadlist_Play;
 
 void setup() {
     Serial.begin(115200);
-   //Wire.begin();
-   //Wire.setClock(4000)
    
    pinMode(4,OUTPUT);
-   analogWrite(4,80);// test pour védio
+   analogWrite(4,80);// PIN 4 Servo moteur (actuellement pas utilisé)
 
    pcf8574.pinMode(P4, OUTPUT);
    pcf8574.pinMode(P5, OUTPUT);
@@ -69,7 +67,7 @@ void setup() {
    pcf8574.digitalWrite(P2, HIGH);
     pcf8574.digitalWrite(P3, HIGH);
    //pcf8574_2.pinMode(enA,OUTPUT);
-   //pcf8574_2.pinMode(enB, OUTPUT); pas besoin psq extendet est digital pas analog io
+   //pcf8574_2.pinMode(enB, OUTPUT); pas besoin psq extender est digital pas analog io
 
    pcf8574_2.pinMode(in1, OUTPUT);
    pcf8574_2.pinMode(in2, OUTPUT);
@@ -78,10 +76,6 @@ void setup() {
 
    pcf8574_2.digitalWrite(in4, LOW);
    pcf8574_2.digitalWrite(in3, LOW);
-    
-    
-    //pcf8574.pinMode(P1,OUTPUT);//test
-    //pcf8574.pinMode(P2,INPUT);//test
    
     Serial.println("SETUP: START");
    
@@ -91,7 +85,6 @@ void setup() {
 	}else{
 		Serial.println("KO");
 	}
-    pcf8574.pinMode(P3,INPUT);//test
     Serial.print("Init pcf8574_2...");
 	if (pcf8574_2.begin()){
 		Serial.println("OK");
@@ -113,8 +106,8 @@ void setup() {
 ////////////////////////////////////////////////////////////////////////
     Serial.println("SETUP: CHANGE NEXT_STATE"); // CHANGE NEXT_STATE (mettre nullptr ou enlever la ligne si l'état ne change pas)
 
-    chariot_state_push->Change_next_state_to(chariot_state_push); // Paramètres: (State: prochain état)
-    chariot_state_reset->Change_next_state_to(chariot_state_push);
+    chariot_state_push->Change_next_state_to(chariot_state_push); // Paramètres: (State: prochain état) [Actuellement, reste dans le même état]
+    chariot_state_reset->Change_next_state_to(chariot_state_reset);
 
     pusher_state_placement_helping->Change_next_state_to(pusher_state_placement_helping);
     pusher_state_card_stocking->Change_next_state_to(pusher_state_placement_helping);
@@ -157,55 +150,49 @@ void loop() {
    
     Serial.println("LOOP: START");
 
-    if(THREAD_BLUETOOTH_NEEDED){
+    if(THREAD_BLUETOOTH_NEEDED){ // Déclaré dans synch_lib bluetooth.h
         Serial.println("LOOP: Bluetooth: Waiting");
         while(!SerialBT.connected()){}
         Serial.println("LOOP: Bluetooth: Connected");
         while(!SerialBT.available()){}
         Serial.println("LOOP: Bluetooth: Données reçues");
 
-        String data = SerialBT.readString();
+        String data = SerialBT.readString(); //Récupération des infos envoyées par l'application
         Serial.println(data);
 
         int data_length = data.length();
         int place = 0 ;
-        if(data[0] == 'p'){
+        if(data[0] == 'p'){ // Action bouton pioche
 
             Serial.println(data[2]);
-            place = data[2]-48;
+            place = data[2]-48; // position dans le stockage libre pour accueillir la carte
             Serial.print("LOOP: Bluetooth: Piocher: Place:");
             Serial.println(place);
             stockage_state_draw->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_draw);
-            //stockage_mecanism->LaunchMecanism(); //Pour les tests
+            ////////////////////////////////////
+            //Séquence de mécansime pour la pioche de carte
             camera_mecanism->LaunchMecanism();
-            //chariot_mecanism->LaunchMecanism();
-            //pusher_mecanism->LaunchMecanism();
-            //permutation_mecanism->LaunchMecanism();
-
+            ////////////////////////////////////
+            //Récupère l'information de la position du stockage (pour pouvoir reset après)
             stockage_state_draw->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
             stockage_state_play->currentPos = (place*Step_between_pos+Step_draw)*Step_calibrer_stockage;
 
-            Serial.print("f");
-            //SerialBT.print("f");
-
-        }else if(data[0] == 'j'){
+        }else if(data[0] == 'j'){ // Action bouton jouer un carte
 
             Serial.println(data[2]);
-            place = data[2]-48;
+            place = data[2]-48; // position dans le stockage de la carte qui doit être expuslée
             Serial.print("LOOP: Bluetooth: Jouer: Place:");
             Serial.println(place);
             stockage_state_play->card_position = place;
             stockage_mecanism->TransitionTo(stockage_state_play);
-            //stockage_mecanism->LaunchMecanism(); //Pour les tests
-            //piston_mecanism->LaunchMecanism();
+            ////////////////////////////////////
+            //Séquence de mécansime pour la pioche de carte
 
+            ////////////////////////////////////
+            //Récupère l'information de la position du stockage (pour pouvoir reset après)
             stockage_state_draw->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;
             stockage_state_play->currentPos = (place*Step_between_pos+Step_play)*Step_calibrer_stockage;
-
-            Serial.print("f");
-            //SerialBT.print("f");
-            
 
         }else{
             Serial.println("LOOP: Bluetooth: Données reçues INCORRECTES");
@@ -213,19 +200,7 @@ void loop() {
 
     }else{
 ////////////////////////////////////////////////////////////////////////
-    Serial.println("LOOP: MECANISM LAUNCH");
-    //threadlist_Draw->LaunchThread(chariot_mecanism);
-
-    chariot_mecanism->LaunchMecanism();
-    delay(2000);
-    piston_mecanism->LaunchMecanism();
-    delay(2000);
-    permutation_mecanism->LaunchMecanism();
-    delay(2000);
-    //camera_mecanism->LaunchMecanism();
-    pusher_mecanism->LaunchMecanism();
-    //pcf8574.digitalWrite(P1,HIGH);//test
-    delay(2000);
+    Serial.println("LOOP SANS BLUETOOTH: MECANISM LAUNCH");
 
     }
 

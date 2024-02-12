@@ -4,8 +4,11 @@
 // Basic_state::MecanismF() peut être modifié à guise (pour correspondre à la partie vois loop() habituelle du main.cpp)
 //////////////////////////////
 // Variations State_chariot: All the possible state for the Chariot
+/////////////////////////////
 void Chariot_state_push::MecanismF(){
-
+/////////////////////////////
+///Le servo motor est mis en commentaire, car acutellement le brancher sans driver peut potentiellement cramé la carte ESP32
+/////////////////////////////
     //pcf8574_2.digitalWrite(enA, HIGH);// pcf8574 no analogWrite du coups pour la vitesse c'est pas facile à changer....
    
     //pcf8574_2.digitalWrite(enA,HIGH);

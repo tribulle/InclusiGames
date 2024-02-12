@@ -41,7 +41,7 @@ class ThreadList{
                 Serial.print("THREAD: nb de mecanismes suivant: ");
                 Serial.println(len_next_mecanism);
 
-                if(next_mecs != nullptr && len_next_mecanism != 0){
+                if(next_mecs != nullptr && len_next_mecanism != 0){ // Actuellement lancé en séquence; le thread en parallèle n'est pas pris en charge
                     for (int e=0; e<len_next_mecanism; e++){
                         if(next_mecs[e] != nullptr) LaunchMecanismInThread(next_mecs[e]);
                         else Serial.println("THREAD: FATAL ERROR next_mecs[e] == Nullptr");
