@@ -22,7 +22,7 @@ This code was created as part of a school project at Centrale Lille.
 ##### state_M.h declares the states of the mechanism
 ##### M_setup.h declares the mechanism PINs
 #### In "lib" folder you can find the libraries installed and adapted for our project
-##### This is due to the use of PCF8574
+##### This is due to the use of librairies off platform( framework arduino)
 #### In "src" folder you can find the definitions
 ##### Same logic for state_M.cpp and M_setup.cpp
 ```c++
