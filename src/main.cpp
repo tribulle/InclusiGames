@@ -52,7 +52,7 @@ void setup() {
     Serial.begin(115200);
    
    pinMode(4,OUTPUT);
-   analogWrite(4,80);// PIN 4 Servo moteur (actuellement pas utilisé)
+   analogWrite(4,80);// PIN 4 Servo motor (actuellement pas utilisé)
 
    pcf8574.pinMode(P4, OUTPUT);
    pcf8574.pinMode(P5, OUTPUT);
@@ -67,7 +67,7 @@ void setup() {
    pcf8574.digitalWrite(P2, HIGH);
     pcf8574.digitalWrite(P3, HIGH);
    //pcf8574_2.pinMode(enA,OUTPUT);
-   //pcf8574_2.pinMode(enB, OUTPUT); pas besoin psq extender est digital pas analog io
+   //pcf8574_2.pinMode(enB, OUTPUT); pas besoin car l'extender est digital pas analog io
 
    pcf8574_2.pinMode(in1, OUTPUT);
    pcf8574_2.pinMode(in2, OUTPUT);
