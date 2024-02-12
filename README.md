@@ -3,8 +3,7 @@
 
 This code was created as part of a school project at Centrale Lille.
 
-
-![Logo](https://www.mondedesgrandesecoles.fr/wp-content/uploads/capture-38.jpg)
+![Logo](https://github.com/DeckyProgrammer/Decky/blob/master/Inclusi'game.png)
 
 
 ## Authors
